@@ -1,0 +1,126 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://player.gd" type="Script" id=1]
+[ext_resource path="res://texture/knight quest/player walk.png" type="Texture" id=2]
+[ext_resource path="res://texture/knight quest/player idle.png" type="Texture" id=3]
+[ext_resource path="res://texture/knight quest/player loose.png" type="Texture" id=4]
+[ext_resource path="res://texture/knight quest/player fight.png" type="Texture" id=5]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 25.5775, 32.3834 )
+
+[sub_resource type="Animation" id=2]
+resource_name = "fight"
+length = 0.7
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("fight:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4 ]
+}
+
+[sub_resource type="Animation" id=3]
+length = 0.6
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("idle:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 1, 2, 3, 4, 5, 6, 7 ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "loose"
+length = 1.2
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("loose:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 4, 3, 2, 3 ]
+}
+
+[sub_resource type="Animation" id=5]
+length = 0.8
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("walk:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 1, 2, 3, 4, 5, 6, 7 ]
+}
+
+[node name="player" type="KinematicBody2D"]
+position = Vector2( 425.916, 290.461 )
+input_pickable = true
+script = ExtResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0.534698, -0.191376 )
+shape = SubResource( 1 )
+
+[node name="walk" type="Sprite" parent="."]
+visible = false
+position = Vector2( 5.75803, 11.093 )
+scale = Vector2( 0.0928582, 0.104426 )
+texture = ExtResource( 2 )
+vframes = 3
+hframes = 3
+frame = 5
+
+[node name="AnimationTreePlayer" type="AnimationPlayer" parent="."]
+anims/fight = SubResource( 2 )
+anims/idle = SubResource( 3 )
+anims/loose = SubResource( 4 )
+anims/walk = SubResource( 5 )
+
+[node name="idle" type="Sprite" parent="."]
+visible = false
+position = Vector2( 5.34402, 11.452 )
+scale = Vector2( 0.0928582, 0.104426 )
+texture = ExtResource( 3 )
+vframes = 3
+hframes = 3
+frame = 6
+
+[node name="loose" type="Sprite" parent="."]
+position = Vector2( 8.63382, 15.4278 )
+scale = Vector2( 0.105392, 0.105392 )
+texture = ExtResource( 4 )
+vframes = 3
+hframes = 2
+frame = 5
+
+[node name="fight" type="Sprite" parent="."]
+visible = false
+position = Vector2( 5.82104, 13.5405 )
+scale = Vector2( 0.0985733, 0.0985733 )
+texture = ExtResource( 5 )
+vframes = 3
+hframes = 2
+frame = 1

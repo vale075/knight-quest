@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://base.gd" type="Script" id=1]
+[ext_resource path="res://texture/knight quest/base.png" type="Texture" id=2]
+[ext_resource path="res://texture/static/life.png" type="Texture" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 485.435, 60.5363 )
+
+[node name="StaticBody2D" type="StaticBody2D"]
+position = Vector2( 2.10535, 0 )
+script = ExtResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -0.225433, 1.21681 )
+shape = SubResource( 1 )
+
+[node name="base (2)" type="Sprite" parent="."]
+position = Vector2( -4.72202, 198.011 )
+scale = Vector2( 0.930843, 0.493443 )
+texture = ExtResource( 2 )
+
+[node name="Sprite2" type="Sprite" parent="."]
+
+[node name="life" type="Sprite" parent="Sprite2"]
+position = Vector2( -0.426499, 47.3842 )
+scale = Vector2( 0.937194, 0.290673 )
+texture = ExtResource( 3 )
