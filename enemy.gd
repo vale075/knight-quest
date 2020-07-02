@@ -12,14 +12,14 @@ func _physics_process(delta):
 
 func _on_Area2D_body_entered(body):
 	if body.name == "player":
-		if finish ==false:
+		if $"../../mur/base".finish ==false:
 			get_node("../../scorenode").enemykill(position)
 			get_node("../../playernode/player").attack = true
 			get_node("../../playernode/player").timer = 0
 			get_node("../..").kill()
 			queue_free()
 	elif body.name == "base":
-		if finish == true:
+		if $"../../mur/base".finish == true:
 			finishhim=true
 		else:
 			get_node("../../mur/base").damage()

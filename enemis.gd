@@ -19,6 +19,8 @@ func _on_Timer_timeout():
 			add_child(enemy)
 
 func _on_Button_pressed():
+	enemi=0
+	enemylife=0
 	finish = false
 	enemyspeed=1
 	for n in get_children():
@@ -34,9 +36,8 @@ func _process(delta):
 	if activate == false:
 		if enemi >14:
 			if enemylife==0:
-				if $"../mur/base".pv < 6:
-					activate=true
-					
+				get_parent().end()
+				activate=true
 
 func _on_main_pause():
 	pause=true

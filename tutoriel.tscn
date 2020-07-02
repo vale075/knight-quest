@@ -28,6 +28,7 @@
 [ext_resource path="res://texture/knight quest/tueaster.wav" type="AudioStream" id=26]
 [ext_resource path="res://texture/knight quest/amedefeucinéma.png" type="Texture" id=27]
 [ext_resource path="res://texture/knight quest/fireballassimilation.wav" type="AudioStream" id=28]
+[ext_resource path="res://text+back.tres" type="DynamicFont" id=29]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 537.666, 31.8961 )
@@ -62,10 +63,7 @@ font_data = ExtResource( 9 )
 [sub_resource type="DynamicFont" id=9]
 font_data = ExtResource( 9 )
 
-[sub_resource type="DynamicFont" id=10]
-font_data = ExtResource( 9 )
-
-[sub_resource type="Animation" id=11]
+[sub_resource type="Animation" id=10]
 length = 0.8
 loop = true
 tracks/0/type = "value"
@@ -81,7 +79,7 @@ tracks/0/keys = {
 "values": [ 0, 1, 2, 3 ]
 }
 
-[sub_resource type="Animation" id=12]
+[sub_resource type="Animation" id=11]
 resource_name = "easter"
 length = 4.0
 loop = true
@@ -99,7 +97,7 @@ tracks/0/keys = {
 "values": [ 0, 1, 2, 3, 4, 5, 5, 6, 7, 8, 9, 11, 13, 14, 15, 5, 6, 7, 8, 9, 11, 12, 12, 12, 13, 14, 15, 9, 10, 11, 12, 13, 14, 15, 16, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 7, 8, 9, 10, 11, 12, 13, 14, 15, 9 ]
 }
 
-[sub_resource type="Animation" id=13]
+[sub_resource type="Animation" id=12]
 resource_name = "accaparement"
 length = 7.8
 loop = true
@@ -363,10 +361,9 @@ __meta__ = {
 [node name="cinématiques" type="Node" parent="."]
 
 [node name="textback" type="Sprite" parent="cinématiques"]
-visible = false
 position = Vector2( 510.724, 297.117 )
 scale = Vector2( 33.2499, 19.6797 )
-z_index = 1
+z_index = 2
 texture = ExtResource( 21 )
 
 [node name="text" type="Label" parent="cinématiques/textback"]
@@ -375,7 +372,7 @@ margin_top = -14.0287
 margin_right = 58.0161
 margin_bottom = 31.9713
 rect_scale = Vector2( 0.1, 0.1 )
-custom_fonts/font = SubResource( 9 )
+custom_fonts/font = ExtResource( 29 )
 text = "TEXT"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -387,7 +384,7 @@ margin_top = 12.1445
 margin_right = 58.0526
 margin_bottom = 58.1445
 rect_scale = Vector2( 0.06, 0.06 )
-custom_fonts/font = SubResource( 10 )
+custom_fonts/font = SubResource( 9 )
 text = "TEXT"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -404,10 +401,11 @@ scale = Vector2( 0.126938, 0.126938 )
 texture = ExtResource( 22 )
 vframes = 2
 hframes = 2
+frame = 3
 script = ExtResource( 24 )
 
 [node name="AnimationTree" type="AnimationPlayer" parent="cinématiques/roi"]
-anims/idle = SubResource( 11 )
+anims/idle = SubResource( 10 )
 
 [node name="tutoeaster" type="Sprite" parent="cinématiques"]
 visible = false
@@ -420,7 +418,7 @@ hframes = 3
 frame = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="cinématiques/tutoeaster"]
-anims/easter = SubResource( 12 )
+anims/easter = SubResource( 11 )
 
 [node name="amedefeu" type="Sprite" parent="cinématiques"]
 visible = false
@@ -433,7 +431,7 @@ hframes = 6
 frame = 14
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="cinématiques/amedefeu"]
-anims/accaparement = SubResource( 13 )
+anims/accaparement = SubResource( 12 )
 [connection signal="pause" from="." to="playernode/player" method="_on_main_pause"]
 [connection signal="pause" from="." to="enemis" method="_on_main_pause"]
 [connection signal="pause" from="." to="playernode" method="_on_main_pause"]
@@ -445,10 +443,10 @@ anims/accaparement = SubResource( 13 )
 [connection signal="mouse_entered" from="restartmenu/Button" to="restartmenu" method="_on_Button_mouse_entered"]
 [connection signal="mouse_exited" from="restartmenu/Button" to="restartmenu" method="_on_Button_mouse_exited"]
 [connection signal="pressed" from="restartmenu/Button" to="playernode/player" method="_on_Button_pressed"]
-[connection signal="pressed" from="restartmenu/Button" to="mur/base" method="_on_Button_pressed"]
 [connection signal="pressed" from="restartmenu/Button" to="enemis" method="_on_Button_pressed"]
-[connection signal="pressed" from="restartmenu/Button" to="playernode" method="_on_Button_pressed"]
 [connection signal="pressed" from="restartmenu/Button" to="scorenode" method="_on_Button_pressed"]
+[connection signal="pressed" from="restartmenu/Button" to="playernode" method="_on_Button_pressed"]
+[connection signal="pressed" from="restartmenu/Button" to="mur/base" method="_on_Button_pressed"]
 [connection signal="mouse_entered" from="restartmenu/quit" to="." method="_on_quit_mouse_entered"]
 [connection signal="mouse_exited" from="restartmenu/quit" to="." method="_on_quit_mouse_exited"]
 [connection signal="pressed" from="restartmenu/quit" to="restartmenu" method="_on_quit_pressed"]

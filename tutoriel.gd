@@ -179,7 +179,7 @@ func hit():
 func kill():
 	$sond/enemykill.play()
 
-func overtu():
+func over():
 	fight=false
 	$"cinématiques/textback".visible=true
 	$"cinématiques/textback/text".text ="TU EST NUL!"
