@@ -404,6 +404,3 @@ func _on_acceptbutton_pressed():
 	accept=true
 	$control2/blacktext.visible=true
 	$control2/blacktext/text.visible=true
-
-func _process(delta):
-	print(delta)
