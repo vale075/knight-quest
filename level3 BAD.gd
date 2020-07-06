@@ -89,33 +89,66 @@ func _on_quitb_pressed():
 func end():
 	$playernode/player.position=Vector2(517.205,521.11)
 	$cinema/blacktext.visible=true
-	$cinema/blacktext/text.text="FÉLICITATION!"
-	$cinema/roi.visible=true
-	$cinema/trone.visible=true
+	$cinema/blacktext/text.text="HEY!"
 	$cinema/roi/AnimationPlayer.play("normal")
 	yield(self,"ok")
-	$cinema/blacktext.visible=false
+	$cinema/blacktext/text.text=""
+	$cinema/blacktext/indication.visible=false
+	_wait(2)
+	yield(self,"timer_end")
+	$cinema/blacktext/text.text="JE SUIS FELICIA \n LA REINE ELFE"
+	$cinema/blacktext/indication.visible=true
+	yield(self,"ok")
+	$cinema/blacktext/text.text=""
+	$cinema/blacktext/indication.visible=false
+	_wait(2)
+	yield(self,"timer_end")
+	$cinema/blacktext/text.text="NOUS, LES AUTRES \n RACES \n AVONS BESOIN DE TOI"
+	$cinema/blacktext/indication.visible=true
+	yield(self,"ok")
+	$cinema/blacktext/text.text=""
+	$cinema/blacktext/indication.visible=false
+	_wait(2)
+	yield(self,"timer_end")
+	$cinema/blacktext/text.text="LE ROI NOUS \n MASSACRE DEPUIS \n TROP LONGTEMPS"
+	$cinema/blacktext/indication.visible=true
+	yield(self,"ok")
+	$cinema/blacktext/text.text=""
+	$cinema/blacktext/indication.visible=false
+	_wait(2)
+	yield(self,"timer_end")
+	$cinema/blacktext/text.text="AIDE NOUS A \n LE FAIRE TOMBER \n S'IL TE PLAIT"
+	$cinema/blacktext/indication.visible=true
+	yield(self,"ok")
+	$cinema/blacktext/text.text=""
+	$cinema/blacktext/indication.visible=false
+	_wait(2)
+	yield(self,"timer_end")
+	$cinema/blacktext/text.text="POUR CA C'EST \n SIMPLE : FAIT EN SORTE \n QU'UN MAXIMUM DE \n NOS SOLDAT PASSE"
+	$cinema/blacktext/indication.visible=true
+	yield(self,"ok")
+	$cinema/blacktext/text.text=""
+	$cinema/blacktext/indication.visible=false
+	_wait(2)
+	yield(self,"timer_end")
+	$cinema/blacktext/text.text="FAIT JUSTE ATENTON \n QU'IL N'Y EN \n AS PAS TROP QUI \n PASSE... SINON LE ROI \n VA S'EN RENDRE COMPTE"
+	$cinema/blacktext/indication.visible=true
+	yield(self,"ok")
+	$cinema/blacktext/text.text=""
+	$cinema/blacktext/indication.visible=false
+	_wait(2)
+	yield(self,"timer_end")
+	$cinema/blacktext/text.text="ON COMPTE SUR \n TOI"
+	$cinema/blacktext/indication.visible=true
+	yield(self,"ok")
+	$cinema/blacktext/text.text=""
+	$cinema/blacktext/indication.visible=false
 	_wait(2)
 	yield(self,"timer_end")
 	if $mur/base.pv<5:
-		$cinema/blacktext.visible=true
-		$cinema/blacktext/text.text="TU N'EST PAS FORT \n MAIS JE CROIS \n EN TOI"
-		yield(self,"ok")
-		_wait(2)
-		yield(self,"timer_end")
-		get_tree().change_scene("res://level2good.tscn")
+		pass
 	else:
-		$cinema/blacktext.visible=true
-		$cinema/blacktext/text.text="TU SURPASSE \n MES ATENTES"
-		yield(self,"ok")
-		_wait(2)
-		yield(self,"timer_end")
-		get_tree().change_scene("res://level2BAD.tscn")
+		pass
 
 func touch():
-	if touch==false:
-		$cinema/blacktext.visible=true
-		$cinema/blacktext/text.text="ATTENTION! \n EUX TU DOIT \n LES ÉVITER"
-		emit_signal("pause")
-		yield(self,"ok")
-		emit_signal("unpause")
+	pass

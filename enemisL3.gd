@@ -1,31 +1,22 @@
 extends Node
 
 var pause=false
-var enemyspeed= 1
+var enemyspeed= 5
 var finish = false
 var enemi = 0
 var enemylife=0
 var activate =false
 
 func _on_Timer_timeout():
-	var typeenemy= randi()%2
-	if enemi <30:
+	if enemi <40:
 		if pause == false:
-			enemyspeed+=0.01
-			if typeenemy == 0:
-				var enemy = load("res://enemy.tscn").instance()
-				enemy.speed=enemyspeed
-				enemy.position.x = rand_range(50,950)
-				enemylife+=1
-				enemi+=1
-				add_child(enemy)
-			else:
-				var enemy = load("res://enemy2.tscn").instance()
-				enemy.speed=enemyspeed
-				enemy.position.x = rand_range(50,950)
-				enemylife+=1
-				enemi+=1
-				add_child(enemy)
+			enemyspeed+=0.05
+			var enemy = load("res://enemy2.tscn").instance()
+			enemy.speed=enemyspeed
+			enemy.position.x = get_node("../playernode/player").position.x
+			enemylife+=1
+			enemi+=1
+			add_child(enemy)
 
 func _on_Button_pressed():
 	enemi=0
@@ -43,7 +34,7 @@ func _process(delta):
 			if n.name != "Timer":
 				get_node(n.name).finish=true
 	if activate == false:
-		if enemi >30:
+		if enemi >40:
 			if enemylife==0:
 				get_parent().end()
 				activate=true

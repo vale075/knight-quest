@@ -99,23 +99,24 @@ func end():
 	yield(self,"timer_end")
 	if $mur/base.pv<5:
 		$cinema/blacktext.visible=true
-		$cinema/blacktext/text.text="TU N'EST PAS FORT \n MAIS JE CROIS \n EN TOI"
+		$cinema/blacktext/text.text="CETTE FOIX CI \n TU AS ÉTÉ MOINS FORT"
 		yield(self,"ok")
 		_wait(2)
 		yield(self,"timer_end")
 		get_tree().change_scene("res://level2good.tscn")
 	else:
 		$cinema/blacktext.visible=true
-		$cinema/blacktext/text.text="TU SURPASSE \n MES ATENTES"
+		$cinema/blacktext/text.text="JE CROIS BIEN \n QUE TU EST \n MA MEILLEURE \n INVOCATION!"
 		yield(self,"ok")
 		_wait(2)
 		yield(self,"timer_end")
-		get_tree().change_scene("res://level2BAD.tscn")
 
 func touch():
 	if touch==false:
 		$cinema/blacktext.visible=true
 		$cinema/blacktext/text.text="ATTENTION! \n EUX TU DOIT \n LES ÉVITER"
 		emit_signal("pause")
-		yield(self,"ok")
+		yield(self , "ok")
+		$cinema/blacktext.visible=false
 		emit_signal("unpause")
+		touch = true

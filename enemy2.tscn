@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://enemy.gd" type="Script" id=1]
-[ext_resource path="res://texture/knight quest/enemy.png" type="Texture" id=2]
+[ext_resource path="res://enemy2.gd" type="Script" id=1]
+[ext_resource path="res://texture/knight quest/enemy2.png" type="Texture" id=2]
 [ext_resource path="res://Sprite1.gd" type="Script" id=3]
+[ext_resource path="res://texture/knight quest/explosion.png" type="Texture" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 13.8408, 27.9524 )
@@ -26,6 +27,23 @@ tracks/0/keys = {
 
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 6.69918, 10 )
+
+[sub_resource type="Animation" id=4]
+resource_name = "explosion"
+length = 0.52
+step = 0.03
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.03, 0.06, 0.09, 0.12, 0.15, 0.18, 0.21, 0.24, 0.27, 0.3, 0.33, 0.36, 0.39, 0.42, 0.45, 0.48 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16 ]
+}
 
 [node name="boomer" type="KinematicBody2D"]
 script = ExtResource( 1 )
@@ -52,5 +70,18 @@ anims/boomer = SubResource( 2 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( -0.349648, 0.524475 )
 shape = SubResource( 3 )
+
+[node name="Sprite2" type="Sprite" parent="."]
+visible = false
+position = Vector2( 4.54467, 11.406 )
+scale = Vector2( 0.225578, 0.225578 )
+texture = ExtResource( 4 )
+vframes = 5
+hframes = 4
+frame = 16
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2"]
+anims/explosion = SubResource( 4 )
 [connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
+[connection signal="animation_finished" from="Sprite2/AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

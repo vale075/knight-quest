@@ -32,7 +32,8 @@ func _on_Button_pressed():
 	get_node("../../restartmenu/quit2").visible=false
 	get_node("../../restartmenu/home2").visible=false
 	get_node("../../restartmenu/home").visible=false
-	finish = false
 	pv = float(13)
+	activate=false
+	finish = false
 	get_node("../../restartmenu/Button").visibility2()
 	get_node("../..").oversound = false
