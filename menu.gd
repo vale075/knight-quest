@@ -9,6 +9,7 @@ var right=false
 var pause=false
 var fire=false
 var accept = false
+var levelsave = ""
 
 func _ready():
 	$menumusic.play()
@@ -94,8 +95,14 @@ func _on_begin_mouse_exited():
 
 
 func _on_begin_pressed():
-	get_tree().change_scene("res://tutoriel.tscn")
-	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+	var save_game = File.new()
+	save_game.open("res://save/save.tres", File.READ)
+	if not save_game == Object():
+		for i in save_game:
+			if "res" in i:
+				levelsave = i
+		get_tree().change_scene(levelsave)
+		Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 
 func _on_quit_pressed():
 	get_tree().quit()

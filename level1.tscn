@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=2]
+[gd_scene load_steps=35 format=2]
 
 [ext_resource path="res://Node.gd" type="Script" id=1]
 [ext_resource path="res://texture/knight quest/mur.png" type="Texture" id=2]
@@ -24,6 +24,7 @@
 [ext_resource path="res://texture/knight quest/salle trone.png" type="Texture" id=22]
 [ext_resource path="res://texture/static/blackback.png" type="Texture" id=23]
 [ext_resource path="res://text+back.tres" type="DynamicFont" id=24]
+[ext_resource path="res://SAVE.tscn" type="PackedScene" id=25]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 537.666, 31.8961 )
@@ -163,6 +164,9 @@ custom_fonts/font = SubResource( 3 )
 custom_colors/font_outline_modulate = Color( 0.0941176, 0.647059, 0, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 text = "score"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="combo" type="Label" parent="scorenode"]
 margin_left = 774.948
@@ -172,6 +176,9 @@ margin_bottom = 405.52
 custom_fonts/font = SubResource( 4 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 text = "combo"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="sond" type="Node" parent="."]
 
@@ -344,6 +351,8 @@ margin_bottom = 56.0
 rect_scale = Vector2( 0.1, 0.1 )
 custom_fonts/font = ExtResource( 24 )
 text = "TEST"
+
+[node name="SAVE" parent="." instance=ExtResource( 25 )]
 [connection signal="pause" from="." to="playernode/player" method="_on_main_pause"]
 [connection signal="pause" from="." to="playernode" method="_on_main_pause"]
 [connection signal="pause" from="." to="enemis" method="_on_main_pause"]
@@ -354,11 +363,11 @@ text = "TEST"
 [connection signal="finished" from="sond/musique" to="." method="_on_musique_finished"]
 [connection signal="mouse_entered" from="restartmenu/Button" to="restartmenu" method="_on_Button_mouse_entered"]
 [connection signal="mouse_exited" from="restartmenu/Button" to="restartmenu" method="_on_Button_mouse_exited"]
-[connection signal="pressed" from="restartmenu/Button" to="mur/base" method="_on_Button_pressed"]
 [connection signal="pressed" from="restartmenu/Button" to="playernode/player" method="_on_Button_pressed"]
+[connection signal="pressed" from="restartmenu/Button" to="mur/base" method="_on_Button_pressed"]
+[connection signal="pressed" from="restartmenu/Button" to="scorenode" method="_on_Button_pressed"]
 [connection signal="pressed" from="restartmenu/Button" to="playernode" method="_on_Button_pressed"]
 [connection signal="pressed" from="restartmenu/Button" to="enemis" method="_on_Button_pressed"]
-[connection signal="pressed" from="restartmenu/Button" to="scorenode" method="_on_Button_pressed"]
 [connection signal="mouse_entered" from="restartmenu/quit" to="." method="_on_quit_mouse_entered"]
 [connection signal="mouse_exited" from="restartmenu/quit" to="." method="_on_quit_mouse_exited"]
 [connection signal="pressed" from="restartmenu/quit" to="restartmenu" method="_on_quit_pressed"]
