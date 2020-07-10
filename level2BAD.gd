@@ -7,6 +7,9 @@ var pause=false
 signal timer_end
 signal ok
 var touch = false
+var savepv = "savepv"
+var pvextract=""
+var file=File.new()
 
 func _wait( seconds ):
 	self._create_timer(self, seconds, true, "_emit_timer_end_signal")
@@ -103,13 +106,48 @@ func end():
 		yield(self,"ok")
 		_wait(2)
 		yield(self,"timer_end")
-		get_tree().change_scene("res://level2good.tscn")
+		file.open("res://save/save.tres", File.READ)
+		while not savepv== "":
+			savepv=file.get_line()
+			print(savepv)
+			if  0 in savepv  or 1 in savepv  or 2 in savepv  or 3 in savepv  or 4 in savepv  or 5 in savepv  or 6 in savepv  or 7 in savepv  or 8 in savepv or 9 in savepv:
+				if not "res" in savepv:
+					pvextract=savepv
+					savepv=""
+		var save={
+			"res://level3normal.tscn"  :  "",
+			pvextract+str($mur/base.pv)  :  ""
+		}
+		var save_game = File.new()
+		save_game.open("res://save/save.tres", File.WRITE)
+		for i in save:
+			save_game.store_line(i)
+		save_game.close()
+		get_tree().change_scene("res://level3normal.tscn")
 	else:
 		$cinema/blacktext.visible=true
 		$cinema/blacktext/text.text="JE CROIS BIEN \n QUE TU EST \n MA MEILLEURE \n INVOCATION!"
 		yield(self,"ok")
 		_wait(2)
 		yield(self,"timer_end")
+		file.open("res://save/save.tres", File.READ)
+		while not savepv== "":
+			savepv=file.get_line()
+			print(savepv)
+			if  "0" in savepv  or "1" in savepv  or "2" in savepv  or "3" in savepv  or "4" in savepv  or "5" in savepv  or "6" in savepv  or "7" in savepv  or "8" in savepv or "9" in savepv:
+				if not "res" in savepv:
+					pvextract=savepv
+					savepv=""
+		var save={
+			"res://level3 BAD.tscn"  :  "",
+			savepv+str($mur/base.pv)  :  ""
+		}
+		var save_game = File.new()
+		save_game.open("res://save/save.tres", File.WRITE)
+		for i in save:
+			save_game.store_line(i)
+		save_game.close()
+		get_tree().change_scene("res://level3 BAD.tscn")
 
 func touch():
 	if touch==false:

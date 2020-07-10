@@ -10,6 +10,25 @@ var pause=false
 var fire=false
 var accept = false
 var levelsave = ""
+var line = "line"
+var LEVEL = ""
+signal timer_end
+
+
+func _wait( seconds ):
+	self._create_timer(self, seconds, true, "_emit_timer_end_signal")
+
+func _emit_timer_end_signal():
+	emit_signal("timer_end")
+
+func _create_timer(object_target, float_wait_time, bool_is_oneshot, string_function):
+	var timer = Timer.new()
+	timer.set_one_shot(bool_is_oneshot)
+	timer.set_timer_process_mode(0)
+	timer.set_wait_time(float_wait_time)
+	timer.connect("timeout", object_target, string_function)
+	self.add_child(timer)
+	timer.start()
 
 func _ready():
 	$menumusic.play()
@@ -82,8 +101,28 @@ func _on__continue_mouse_exited():
 
 
 func _on__continue_pressed():
-	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
-	get_tree().change_scene("res://level1.tscn")
+	var save_game= File.new()
+	save_game.open("res://save/save.tres", File.READ)
+	if save_game.get_line()== "":
+		$control2/blacktext.visible=true
+		$control2/blacktext/text.text="AUCUNE \nSAUVEGARDE \n DETECTE"
+		_wait(2)
+		yield(self,"timer_end")
+		$control2/blacktext.visible=false
+		$control2/blacktext/text.text="APUYEZ \n SUR UNE \n TOUCHE"
+	save_game= File.new()
+	save_game.open("res://save/save.tres", File.READ)
+	if not save_game.get_line()== "":
+		save_game= File.new()
+		save_game.open("res://save/save.tres", File.READ)
+		while not line == "":
+			line = save_game.get_line()
+			print(line)
+			if "res" in line:
+				LEVEL = line
+		save_game.close()
+		Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+		get_tree().change_scene(LEVEL)
 
 
 func _on_begin_mouse_entered():
@@ -96,13 +135,9 @@ func _on_begin_mouse_exited():
 
 func _on_begin_pressed():
 	var save_game = File.new()
-	save_game.open("res://save/save.tres", File.READ)
-	if not save_game == Object():
-		for i in save_game:
-			if "res" in i:
-				levelsave = i
-		get_tree().change_scene(levelsave)
-		Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+	save_game.open("res://save/save.tres", File.WRITE)
+	get_tree().change_scene("res://tutoriel.tscn")
+	
 
 func _on_quit_pressed():
 	get_tree().quit()

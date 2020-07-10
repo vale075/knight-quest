@@ -43,7 +43,7 @@ func _process(delta):
 			if n.name != "Timer":
 				get_node(n.name).finish=true
 	if activate == false:
-		if enemi >30:
+		if enemi >29:
 			if enemylife==0:
 				get_parent().end()
 				activate=true

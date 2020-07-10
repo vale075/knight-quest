@@ -103,13 +103,32 @@ func end():
 		yield(self,"ok")
 		_wait(2)
 		yield(self,"timer_end")
-		get_tree().change_scene("res://level2good.tscn")
+		var save={
+			"res://level3normal.tscn"  :  "",
+			str($mur/base.pv)  :  ""
+		}
+		var save_game = File.new()
+		save_game.open("res://save/save.tres", File.WRITE)
+		for i in save:
+			save_game.store_line(i)
+		save_game.close()
+		get_tree().change_scene("res://level3 good.tscn")
 	else:
 		$cinema/blacktext.visible=true
 		$cinema/blacktext/text.text="TU PROGRESSE!"
 		yield(self,"ok")
 		_wait(2)
 		yield(self,"timer_end")
+		var save={
+			"res://level3normal.tscn"  :  "",
+			str($mur/base.pv)  :  ""
+		}
+		var save_game = File.new()
+		save_game.open("res://save/save.tres", File.WRITE)
+		for i in save:
+			save_game.store_line(i)
+		save_game.close()
+		get_tree().change_scene("res://level3normal.tscn")
 
 func touch():
 	if touch==false:
