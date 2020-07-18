@@ -7,6 +7,9 @@ var pause=false
 signal timer_end
 signal ok
 var touch = false
+var savepv = "savepv"
+var pvextract=""
+var file=File.new()
 
 func _wait( seconds ):
 	self._create_timer(self, seconds, true, "_emit_timer_end_signal")
@@ -87,6 +90,8 @@ func _on_quitb_pressed():
 	get_tree().quit()
 
 func end():
+	$sond/musique.stream=load("res://texture/knight quest/tutoriel music.wav")
+	$sond/musique.play()
 	$playernode/player.position=Vector2(517.205,521.11)
 	$cinema/blacktext.visible=true
 	$cinema/blacktext/text.text="FÉLICITATION!"
@@ -103,9 +108,17 @@ func end():
 		yield(self,"ok")
 		_wait(2)
 		yield(self,"timer_end")
+		file.open("res://save/save.tres", File.READ)
+		while not savepv== "":
+			savepv=file.get_line()
+			if  "0" in savepv  or "1" in savepv  or "2" in savepv  or "3" in savepv  or "4" in savepv  or "5" in savepv  or "6" in savepv  or "7" in savepv  or "8" in savepv or "9" in savepv:
+				if not "res" in savepv:
+					pvextract=savepv
+					savepv=""
+					file.close()
 		var save={
 			"res://level3normal.tscn"  :  "",
-			str($mur/base.pv)  :  ""
+			pvextract+str($mur/base.pv)  :  ""
 		}
 		var save_game = File.new()
 		save_game.open("res://save/save.tres", File.WRITE)
@@ -119,9 +132,17 @@ func end():
 		yield(self,"ok")
 		_wait(2)
 		yield(self,"timer_end")
+		file.open("res://save/save.tres", File.READ)
+		while not savepv== "":
+			savepv=file.get_line()
+			if  "0" in savepv  or "1" in savepv  or "2" in savepv  or "3" in savepv  or "4" in savepv  or "5" in savepv  or "6" in savepv  or "7" in savepv  or "8" in savepv or "9" in savepv:
+				if not "res" in savepv:
+					pvextract=savepv
+					savepv=""
+					file.close()
 		var save={
 			"res://level3normal.tscn"  :  "",
-			str($mur/base.pv)  :  ""
+			pvextract+str($mur/base.pv)  :  ""
 		}
 		var save_game = File.new()
 		save_game.open("res://save/save.tres", File.WRITE)

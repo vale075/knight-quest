@@ -6,6 +6,8 @@ var finish = false
 var enemi = 0
 var enemylife=0
 var activate =false
+var load1=load("res://enemy.tscn")
+var load2=load("res://enemy2.tscn")
 
 func _on_Timer_timeout():
 	var typeenemy= randi()%2
@@ -13,14 +15,14 @@ func _on_Timer_timeout():
 		if pause == false:
 			enemyspeed+=0.01
 			if typeenemy == 0:
-				var enemy = load("res://enemy.tscn").instance()
+				var enemy = load1.instance()
 				enemy.speed=enemyspeed
 				enemy.position.x = rand_range(50,950)
 				enemylife+=1
 				enemi+=1
 				add_child(enemy)
 			else:
-				var enemy = load("res://enemy2.tscn").instance()
+				var enemy = load2.instance()
 				enemy.speed=enemyspeed
 				enemy.position.x = rand_range(50,950)
 				enemylife+=1

@@ -9,8 +9,9 @@ var cine=0
 var fight=false
 var okok=false
 var another=false
-var speed = float(1)
+var speed = float(18)
 var musique = true
+var easter= false
 
 func _wait( seconds ):
 	self._create_timer(self, seconds, true, "_emit_timer_end_signal")
@@ -156,6 +157,7 @@ func cinema():
 		get_tree().change_scene("res://level1.tscn")
 	elif cine==666:
 		musique=false
+		easter=true
 		$sond/musique.stop()
 		$"cinématiques/textback".visible=true
 		$"cinématiques/tutoeaster".visible=true
@@ -211,22 +213,24 @@ func _process(delta):
 			$restartmenu/quitb2.visible=false
 			Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	if Input.is_action_just_pressed("ok"):
-		if fight == false:
-			if okok == false:
-				okok=true
-				$"cinématiques/textback".visible=false
-				_wait(1)
-				yield(self,"timer_end")
-				cinema()
-				okok=false
-		if another==true:
-			$"cinématiques/textback".visible=false
-			another=false
-			var enemytu=load("res://enemytu.tscn").instance()
-			speed=float(speed/1.3)
-			enemytu.speed=speed
-			enemytu.position.x = rand_range(50,950)
-			add_child(enemytu)
+		if easter==false:
+			if fight == false:
+				if okok == false:
+					okok=true
+					$"cinématiques/textback".visible=false
+					_wait(1)
+					yield(self,"timer_end")
+					cinema()
+					okok=false
+			if another==true:
+				if easter==false:
+					$"cinématiques/textback".visible=false
+				another=false
+				var enemytu=load("res://enemytu.tscn").instance()
+				speed=float(speed/1.3)
+				enemytu.speed=speed
+				enemytu.position.x = rand_range(50,950)
+				add_child(enemytu)
 
 func _on_unpause_pressed():
 	emit_signal("unpause")

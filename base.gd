@@ -1,13 +1,13 @@
 extends StaticBody2D
 
-var pv = float(13)
+var pv = float(9)
 var finish = false
 var activate=false
 
 func _process(delta):
 	if activate ==false:
 		if finish == false:
-			$Sprite2.scale.x= pv/13
+			$Sprite2.scale.x= pv/9
 		if pv == 0:
 			$Sprite2.scale.x=0
 			get_node("../..").over()

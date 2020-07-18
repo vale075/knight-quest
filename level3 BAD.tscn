@@ -20,8 +20,8 @@
 [ext_resource path="res://texture/static/quit.png" type="Texture" id=18]
 [ext_resource path="res://texture/static/home.png" type="Texture" id=19]
 [ext_resource path="res://texture/static/unpause.png" type="Texture" id=20]
-[ext_resource path="res://texture/knight quest/kingidle.png" type="Texture" id=21]
-[ext_resource path="res://texture/knight quest/salle trone.png" type="Texture" id=22]
+[ext_resource path="res://texture/knight quest/salle trone.png" type="Texture" id=21]
+[ext_resource path="res://texture/knight quest/kingidle.png" type="Texture" id=22]
 [ext_resource path="res://texture/static/blackback.png" type="Texture" id=23]
 [ext_resource path="res://text+back.tres" type="DynamicFont" id=24]
 
@@ -304,13 +304,13 @@ text = "REPRENDRE"
 visible = false
 position = Vector2( 502.681, 301.608 )
 scale = Vector2( 0.41571, 0.41571 )
-texture = ExtResource( 22 )
+texture = ExtResource( 21 )
 
 [node name="roi" type="Sprite" parent="cinema"]
 visible = false
 position = Vector2( 504.555, 182.456 )
 scale = Vector2( 0.157091, 0.157091 )
-texture = ExtResource( 21 )
+texture = ExtResource( 22 )
 vframes = 2
 hframes = 2
 frame = 1

@@ -20,8 +20,8 @@
 [ext_resource path="res://texture/static/quit.png" type="Texture" id=18]
 [ext_resource path="res://texture/static/home.png" type="Texture" id=19]
 [ext_resource path="res://texture/static/unpause.png" type="Texture" id=20]
-[ext_resource path="res://texture/knight quest/kingidle.png" type="Texture" id=21]
-[ext_resource path="res://texture/knight quest/salle trone.png" type="Texture" id=22]
+[ext_resource path="res://texture/knight quest/salle trone.png" type="Texture" id=21]
+[ext_resource path="res://texture/knight quest/kingidle.png" type="Texture" id=22]
 [ext_resource path="res://texture/static/blackback.png" type="Texture" id=23]
 [ext_resource path="res://text+back.tres" type="DynamicFont" id=24]
 
@@ -303,13 +303,13 @@ text = "REPRENDRE"
 visible = false
 position = Vector2( 502.681, 301.608 )
 scale = Vector2( 0.41571, 0.41571 )
-texture = ExtResource( 22 )
+texture = ExtResource( 21 )
 
 [node name="roi" type="Sprite" parent="cinema"]
 visible = false
 position = Vector2( 504.555, 182.456 )
 scale = Vector2( 0.157091, 0.157091 )
-texture = ExtResource( 21 )
+texture = ExtResource( 22 )
 vframes = 2
 hframes = 2
 frame = 1
@@ -344,21 +344,21 @@ margin_bottom = 56.0
 rect_scale = Vector2( 0.1, 0.1 )
 custom_fonts/font = ExtResource( 24 )
 text = "TEST"
-[connection signal="pause" from="." to="playernode/player" method="_on_main_pause"]
 [connection signal="pause" from="." to="enemis" method="_on_main_pause"]
 [connection signal="pause" from="." to="playernode" method="_on_main_pause"]
-[connection signal="unpause" from="." to="playernode/player" method="_on_main_unpause"]
+[connection signal="pause" from="." to="playernode/player" method="_on_main_pause"]
 [connection signal="unpause" from="." to="enemis" method="_on_main_unpause"]
 [connection signal="unpause" from="." to="playernode" method="_on_main_unpause"]
+[connection signal="unpause" from="." to="playernode/player" method="_on_main_unpause"]
 [connection signal="timeout" from="enemis/Timer" to="enemis" method="_on_Timer_timeout"]
 [connection signal="finished" from="sond/musique" to="." method="_on_musique_finished"]
 [connection signal="mouse_entered" from="restartmenu/Button" to="restartmenu" method="_on_Button_mouse_entered"]
 [connection signal="mouse_exited" from="restartmenu/Button" to="restartmenu" method="_on_Button_mouse_exited"]
-[connection signal="pressed" from="restartmenu/Button" to="playernode/player" method="_on_Button_pressed"]
-[connection signal="pressed" from="restartmenu/Button" to="mur/base" method="_on_Button_pressed"]
 [connection signal="pressed" from="restartmenu/Button" to="scorenode" method="_on_Button_pressed"]
 [connection signal="pressed" from="restartmenu/Button" to="enemis" method="_on_Button_pressed"]
 [connection signal="pressed" from="restartmenu/Button" to="playernode" method="_on_Button_pressed"]
+[connection signal="pressed" from="restartmenu/Button" to="playernode/player" method="_on_Button_pressed"]
+[connection signal="pressed" from="restartmenu/Button" to="mur/base" method="_on_Button_pressed"]
 [connection signal="mouse_entered" from="restartmenu/quit" to="." method="_on_quit_mouse_entered"]
 [connection signal="mouse_exited" from="restartmenu/quit" to="." method="_on_quit_mouse_exited"]
 [connection signal="pressed" from="restartmenu/quit" to="restartmenu" method="_on_quit_pressed"]

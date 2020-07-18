@@ -7,6 +7,7 @@ var finishhim = false
 signal animationfinish
 var dead = false
 
+
 func _physics_process(delta):
 	if finishhim == false:
 		if get_parent().pause==false:
@@ -16,6 +17,8 @@ func _physics_process(delta):
 func _on_Area2D_body_entered(body):
 	if body.name == "player":
 		if $"../../mur/base".finish ==false:
+			$CollisionShape2D.queue_free()
+			$Area2D/CollisionShape2D.queue_free()
 			$Sprite.visible=false
 			get_node("../../mur/base").damage()
 			get_node("../../scorenode").basetouch()
@@ -37,6 +40,8 @@ func _on_Area2D_body_entered(body):
 
 func _on_Area2D_area_entered(area):
 	if "fireball" in area.name:
+		$CollisionShape2D.queue_free()
+		$Area2D/CollisionShape2D.queue_free()
 		get_node("../../scorenode").enemykill(position)
 		get_node("../..").kill()
 		queue_free()

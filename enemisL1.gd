@@ -6,12 +6,13 @@ var finish = false
 var enemi = 0
 var enemylife=0
 var activate =false
+var load1=load("res://enemy.tscn")
 
 func _on_Timer_timeout():
 	if enemi <15:
 		if pause == false:
 			enemyspeed+=0.01
-			var enemy = load("res://enemy.tscn").instance()
+			var enemy = load1.instance()
 			enemy.speed=enemyspeed
 			enemy.position.x = rand_range(50,950)
 			enemylife+=1

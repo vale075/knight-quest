@@ -91,6 +91,8 @@ func _on__return_pressed():
 	$control2/pause.visible=false
 	$"control2/acceptbutton".visible=false
 	$"control2/accept".visible=false
+	$succes2/cresucces.visible=false
+	$succes2/leetsucces.visible=false
 
 func _on__continue_mouse_entered():
 	$_continue.icon=load("res://texture/static/continue2.png")
@@ -117,7 +119,6 @@ func _on__continue_pressed():
 		save_game.open("res://save/save.tres", File.READ)
 		while not line == "":
 			line = save_game.get_line()
-			print(line)
 			if "res" in line:
 				LEVEL = line
 		save_game.close()
@@ -134,6 +135,7 @@ func _on_begin_mouse_exited():
 
 
 func _on_begin_pressed():
+	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	var save_game = File.new()
 	save_game.open("res://save/save.tres", File.WRITE)
 	get_tree().change_scene("res://tutoriel.tscn")
@@ -190,6 +192,8 @@ func _on_option_pressed():
 	$control2/down.visible=false
 	$control2/pausebutton.visible=false
 	$control2/pause.visible=false
+	$succes2/cresucces.visible=false
+	$succes2/leetsucces.visible=false
 	$"control2/acceptbutton".visible=false
 	$"control2/accept".visible=false
 
@@ -295,6 +299,8 @@ func _on_control_pressed():
 	$control2/down.visible=true
 	$control2/pausebutton.visible=true
 	$control2/pause.visible=true
+	$succes2/cresucces.visible=false
+	$succes2/leetsucces.visible=false
 	$"control2/acceptbutton".visible=true
 	$"control2/accept".visible=true
 	$"control2/acceptbutton".text=InputMap.get_action_list("ok")[0].as_text()
@@ -446,3 +452,36 @@ func _on_acceptbutton_pressed():
 	accept=true
 	$control2/blacktext.visible=true
 	$control2/blacktext/text.visible=true
+
+
+func _on_succes_mouse_entered():
+	$succes.icon=load("res://texture/knight quest/coupe1.png")
+
+
+func _on_succes_mouse_exited():
+	$succes.icon=load("res://texture/knight quest/coupe0.png")
+
+
+func _on_succes_pressed():
+	$start.visible=false
+	$quit.visible=false
+	$start2.visible=false
+	$quit2.visible=false
+	$_return.visible=false
+	$return2.visible=false
+	$_continue.visible=false
+	$continue2.visible=false
+	$begin.visible=false
+	$begin2.visible=false
+	$succes2/cresucces.visible=true
+	$succes2/leetsucces.visible=true
+	var succes=File.new()
+	succes.open("res://SAVE/succes.tres", File.READ)
+	var linesucces = "line"
+	while not linesucces== "":
+		linesucces=succes.get_line()
+		if  "scre" in linesucces:
+			$succes2/cresucces.texture=load("res://texture/knight quest/scre.png")
+		if "sleet" in linesucces:
+			$succes2/leetsucces.texture=load("res://texture/knight quest/sleet.png")
+	succes.close()

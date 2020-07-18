@@ -13,22 +13,22 @@
 [ext_resource path="res://texture/static/hit!.wav" type="AudioStream" id=11]
 [ext_resource path="res://texture/static/enemykill.wav" type="AudioStream" id=12]
 [ext_resource path="res://texture/static/gameover.wav" type="AudioStream" id=13]
-[ext_resource path="res://firerecharge.tscn" type="PackedScene" id=14]
-[ext_resource path="res://restartmenu.gd" type="Script" id=15]
-[ext_resource path="res://texture/knight quest/replay1.png" type="Texture" id=16]
-[ext_resource path="res://Button.gd" type="Script" id=17]
-[ext_resource path="res://texture/static/quit.png" type="Texture" id=18]
-[ext_resource path="res://texture/static/home.png" type="Texture" id=19]
-[ext_resource path="res://texture/static/unpause.png" type="Texture" id=20]
-[ext_resource path="res://texture/static/blackback.png" type="Texture" id=21]
-[ext_resource path="res://texture/knight quest/kingidle.png" type="Texture" id=22]
-[ext_resource path="res://texture/knight quest/salle trone.png" type="Texture" id=23]
-[ext_resource path="res://roi.gd" type="Script" id=24]
-[ext_resource path="res://texture/knight quest/tutoeasteregg.png" type="Texture" id=25]
-[ext_resource path="res://texture/knight quest/tueaster.wav" type="AudioStream" id=26]
-[ext_resource path="res://texture/knight quest/amedefeucinéma.png" type="Texture" id=27]
-[ext_resource path="res://texture/knight quest/fireballassimilation.wav" type="AudioStream" id=28]
-[ext_resource path="res://text+back.tres" type="DynamicFont" id=29]
+[ext_resource path="res://texture/knight quest/tueaster.wav" type="AudioStream" id=14]
+[ext_resource path="res://texture/knight quest/fireballassimilation.wav" type="AudioStream" id=15]
+[ext_resource path="res://firerecharge.tscn" type="PackedScene" id=16]
+[ext_resource path="res://restartmenu.gd" type="Script" id=17]
+[ext_resource path="res://texture/knight quest/replay1.png" type="Texture" id=18]
+[ext_resource path="res://Button.gd" type="Script" id=19]
+[ext_resource path="res://texture/static/quit.png" type="Texture" id=20]
+[ext_resource path="res://texture/static/home.png" type="Texture" id=21]
+[ext_resource path="res://texture/static/unpause.png" type="Texture" id=22]
+[ext_resource path="res://texture/static/blackback.png" type="Texture" id=23]
+[ext_resource path="res://text+back.tres" type="DynamicFont" id=24]
+[ext_resource path="res://texture/knight quest/salle trone.png" type="Texture" id=25]
+[ext_resource path="res://texture/knight quest/kingidle.png" type="Texture" id=26]
+[ext_resource path="res://roi.gd" type="Script" id=27]
+[ext_resource path="res://texture/knight quest/tutoeasteregg.png" type="Texture" id=28]
+[ext_resource path="res://texture/knight quest/amedefeucinéma.png" type="Texture" id=29]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 537.666, 31.8961 )
@@ -231,18 +231,18 @@ volume_db = -16.64
 stream = ExtResource( 13 )
 
 [node name="easteregg" type="AudioStreamPlayer" parent="sond"]
-stream = ExtResource( 26 )
+stream = ExtResource( 14 )
 pitch_scale = 2.43
 
 [node name="ame de feu" type="AudioStreamPlayer" parent="sond"]
-stream = ExtResource( 28 )
+stream = ExtResource( 15 )
 
-[node name="firerecharge" parent="." instance=ExtResource( 14 )]
+[node name="firerecharge" parent="." instance=ExtResource( 16 )]
 visible = false
 position = Vector2( 904.648, 491.095 )
 
 [node name="restartmenu" type="Node" parent="."]
-script = ExtResource( 15 )
+script = ExtResource( 17 )
 
 [node name="Button" type="Button" parent="restartmenu"]
 visible = false
@@ -251,9 +251,9 @@ margin_top = 91.5364
 margin_right = 881.55
 margin_bottom = 513.536
 rect_scale = Vector2( 0.35, 0.35 )
-icon = ExtResource( 16 )
+icon = ExtResource( 18 )
 flat = true
-script = ExtResource( 17 )
+script = ExtResource( 19 )
 
 [node name="quit" type="Button" parent="restartmenu"]
 visible = false
@@ -263,7 +263,7 @@ margin_right = 731.807
 margin_bottom = 502.418
 rect_scale = Vector2( 0.35, 0.35 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
-icon = ExtResource( 18 )
+icon = ExtResource( 20 )
 flat = true
 
 [node name="quitb" type="Button" parent="restartmenu"]
@@ -274,7 +274,7 @@ margin_right = 665.185
 margin_bottom = 500.567
 rect_scale = Vector2( 0.35, 0.35 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
-icon = ExtResource( 18 )
+icon = ExtResource( 20 )
 flat = true
 
 [node name="recommencer" type="Label" parent="restartmenu"]
@@ -324,7 +324,7 @@ margin_top = 285.032
 margin_right = 601.612
 margin_bottom = 547.032
 rect_scale = Vector2( 0.35, 0.35 )
-icon = ExtResource( 19 )
+icon = ExtResource( 21 )
 flat = true
 
 [node name="unpause" type="Button" parent="restartmenu"]
@@ -334,7 +334,7 @@ margin_top = 89.1905
 margin_right = 632.003
 margin_bottom = 319.191
 rect_scale = Vector2( 0.4, 0.4 )
-icon = ExtResource( 20 )
+icon = ExtResource( 22 )
 flat = true
 
 [node name="unpause2" type="Label" parent="restartmenu"]
@@ -365,7 +365,7 @@ visible = false
 position = Vector2( 510.724, 297.117 )
 scale = Vector2( 33.2499, 19.6797 )
 z_index = 2
-texture = ExtResource( 21 )
+texture = ExtResource( 23 )
 
 [node name="text" type="Label" parent="cinématiques/textback"]
 margin_left = -14.984
@@ -373,7 +373,7 @@ margin_top = -14.0287
 margin_right = 58.0161
 margin_bottom = 31.9713
 rect_scale = Vector2( 0.1, 0.1 )
-custom_fonts/font = ExtResource( 29 )
+custom_fonts/font = ExtResource( 24 )
 text = "TEXT"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -394,16 +394,16 @@ __meta__ = {
 [node name="salletrone" type="Sprite" parent="cinématiques"]
 position = Vector2( 517.181, 298.417 )
 scale = Vector2( 0.406413, 0.403913 )
-texture = ExtResource( 23 )
+texture = ExtResource( 25 )
 
 [node name="roi" type="Sprite" parent="cinématiques"]
 position = Vector2( 517.264, 204.974 )
 scale = Vector2( 0.126938, 0.126938 )
-texture = ExtResource( 22 )
+texture = ExtResource( 26 )
 vframes = 2
 hframes = 2
 frame = 3
-script = ExtResource( 24 )
+script = ExtResource( 27 )
 
 [node name="AnimationTree" type="AnimationPlayer" parent="cinématiques/roi"]
 anims/idle = SubResource( 10 )
@@ -413,7 +413,7 @@ visible = false
 position = Vector2( 516.926, 274.788 )
 scale = Vector2( 0.312613, 0.312613 )
 z_index = 5
-texture = ExtResource( 25 )
+texture = ExtResource( 28 )
 vframes = 6
 hframes = 3
 frame = 1
@@ -426,28 +426,28 @@ visible = false
 position = Vector2( 523.03, 266.35 )
 scale = Vector2( 1.02575, 1.02575 )
 z_index = 2
-texture = ExtResource( 27 )
+texture = ExtResource( 29 )
 vframes = 6
 hframes = 6
 frame = 14
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="cinématiques/amedefeu"]
 anims/accaparement = SubResource( 12 )
-[connection signal="pause" from="." to="playernode" method="_on_main_pause"]
-[connection signal="pause" from="." to="enemis" method="_on_main_pause"]
 [connection signal="pause" from="." to="playernode/player" method="_on_main_pause"]
-[connection signal="unpause" from="." to="playernode" method="_on_main_unpause"]
-[connection signal="unpause" from="." to="enemis" method="_on_main_unpause"]
+[connection signal="pause" from="." to="enemis" method="_on_main_pause"]
+[connection signal="pause" from="." to="playernode" method="_on_main_pause"]
 [connection signal="unpause" from="." to="playernode/player" method="_on_main_unpause"]
+[connection signal="unpause" from="." to="enemis" method="_on_main_unpause"]
+[connection signal="unpause" from="." to="playernode" method="_on_main_unpause"]
 [connection signal="timeout" from="enemis/Timer" to="enemis" method="_on_Timer_timeout"]
 [connection signal="finished" from="sond/musique" to="." method="_on_musique_finished"]
 [connection signal="mouse_entered" from="restartmenu/Button" to="restartmenu" method="_on_Button_mouse_entered"]
 [connection signal="mouse_exited" from="restartmenu/Button" to="restartmenu" method="_on_Button_mouse_exited"]
-[connection signal="pressed" from="restartmenu/Button" to="scorenode" method="_on_Button_pressed"]
-[connection signal="pressed" from="restartmenu/Button" to="playernode" method="_on_Button_pressed"]
-[connection signal="pressed" from="restartmenu/Button" to="enemis" method="_on_Button_pressed"]
-[connection signal="pressed" from="restartmenu/Button" to="mur/base" method="_on_Button_pressed"]
 [connection signal="pressed" from="restartmenu/Button" to="playernode/player" method="_on_Button_pressed"]
+[connection signal="pressed" from="restartmenu/Button" to="mur/base" method="_on_Button_pressed"]
+[connection signal="pressed" from="restartmenu/Button" to="scorenode" method="_on_Button_pressed"]
+[connection signal="pressed" from="restartmenu/Button" to="enemis" method="_on_Button_pressed"]
+[connection signal="pressed" from="restartmenu/Button" to="playernode" method="_on_Button_pressed"]
 [connection signal="mouse_entered" from="restartmenu/quit" to="." method="_on_quit_mouse_entered"]
 [connection signal="mouse_exited" from="restartmenu/quit" to="." method="_on_quit_mouse_exited"]
 [connection signal="pressed" from="restartmenu/quit" to="restartmenu" method="_on_quit_pressed"]

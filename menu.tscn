@@ -1,34 +1,36 @@
-[gd_scene load_steps=32 format=2]
+[gd_scene load_steps=34 format=2]
 
 [ext_resource path="res://menu.gd" type="Script" id=1]
 [ext_resource path="res://texture/knight quest/replay1.png" type="Texture" id=2]
 [ext_resource path="res://texture/static/option.png" type="Texture" id=3]
-[ext_resource path="res://texture/static/quit.png" type="Texture" id=4]
-[ext_resource path="res://texture/static/Pixeled.ttf" type="DynamicFontData" id=5]
-[ext_resource path="res://texture/static/menu.png" type="Texture" id=6]
-[ext_resource path="res://Sprite.gd" type="Script" id=7]
-[ext_resource path="res://texture/static/return1.png" type="Texture" id=8]
-[ext_resource path="res://texture/static/continue.png" type="Texture" id=9]
-[ext_resource path="res://texture/static/begin.png" type="Texture" id=10]
-[ext_resource path="res://texture/static/enemykill.wav" type="AudioStream" id=11]
-[ext_resource path="res://texture/static/+.png" type="Texture" id=12]
-[ext_resource path="res://texture/static/-.png" type="Texture" id=13]
-[ext_resource path="res://texture/knight quest/menu.wav" type="AudioStream" id=14]
-[ext_resource path="res://texture/static/fullscrenntrue.png" type="Texture" id=15]
-[ext_resource path="res://texture/static/unpause.png" type="Texture" id=16]
-[ext_resource path="res://texture/static/keys.png" type="Texture" id=17]
-[ext_resource path="res://texture/static/sound.png" type="Texture" id=18]
-[ext_resource path="res://base dynamic font.tres" type="DynamicFont" id=19]
-[ext_resource path="res://texture/static/blackback.png" type="Texture" id=20]
-[ext_resource path="res://textbug.tres" type="DynamicFont" id=21]
+[ext_resource path="res://texture/knight quest/coupe0.png" type="Texture" id=4]
+[ext_resource path="res://texture/static/quit.png" type="Texture" id=5]
+[ext_resource path="res://texture/static/Pixeled.ttf" type="DynamicFontData" id=6]
+[ext_resource path="res://texture/static/menu.png" type="Texture" id=7]
+[ext_resource path="res://Sprite.gd" type="Script" id=8]
+[ext_resource path="res://texture/static/return1.png" type="Texture" id=9]
+[ext_resource path="res://texture/static/continue.png" type="Texture" id=10]
+[ext_resource path="res://texture/static/begin.png" type="Texture" id=11]
+[ext_resource path="res://texture/static/enemykill.wav" type="AudioStream" id=12]
+[ext_resource path="res://texture/static/+.png" type="Texture" id=13]
+[ext_resource path="res://texture/static/-.png" type="Texture" id=14]
+[ext_resource path="res://texture/knight quest/menu.wav" type="AudioStream" id=15]
+[ext_resource path="res://texture/static/fullscrenntrue.png" type="Texture" id=16]
+[ext_resource path="res://texture/static/unpause.png" type="Texture" id=17]
+[ext_resource path="res://texture/static/keys.png" type="Texture" id=18]
+[ext_resource path="res://texture/static/sound.png" type="Texture" id=19]
+[ext_resource path="res://base dynamic font.tres" type="DynamicFont" id=20]
+[ext_resource path="res://texture/static/blackback.png" type="Texture" id=21]
+[ext_resource path="res://textbug.tres" type="DynamicFont" id=22]
+[ext_resource path="res://texture/knight quest/succespoint.png" type="Texture" id=23]
 
 [sub_resource type="DynamicFont" id=1]
 size = 25
-font_data = ExtResource( 5 )
+font_data = ExtResource( 6 )
 
 [sub_resource type="DynamicFont" id=2]
 size = 25
-font_data = ExtResource( 5 )
+font_data = ExtResource( 6 )
 
 [sub_resource type="Animation" id=3]
 length = 1.2
@@ -48,31 +50,31 @@ tracks/0/keys = {
 
 [sub_resource type="DynamicFont" id=4]
 size = 25
-font_data = ExtResource( 5 )
+font_data = ExtResource( 6 )
 
 [sub_resource type="DynamicFont" id=5]
 size = 25
-font_data = ExtResource( 5 )
+font_data = ExtResource( 6 )
 
 [sub_resource type="DynamicFont" id=6]
 size = 25
-font_data = ExtResource( 5 )
+font_data = ExtResource( 6 )
 
 [sub_resource type="DynamicFont" id=7]
 size = 40
-font_data = ExtResource( 5 )
+font_data = ExtResource( 6 )
 
 [sub_resource type="DynamicFont" id=8]
 size = 25
-font_data = ExtResource( 5 )
+font_data = ExtResource( 6 )
 
 [sub_resource type="DynamicFont" id=9]
 size = 25
-font_data = ExtResource( 5 )
+font_data = ExtResource( 6 )
 
 [sub_resource type="DynamicFont" id=10]
 size = 25
-font_data = ExtResource( 5 )
+font_data = ExtResource( 6 )
 
 [node name="menu" type="Node"]
 script = ExtResource( 1 )
@@ -96,13 +98,22 @@ rect_scale = Vector2( 0.1, 0.1 )
 icon = ExtResource( 3 )
 flat = true
 
+[node name="succes" type="Button" parent="."]
+margin_left = 6.0
+margin_top = 224.0
+margin_right = 530.0
+margin_bottom = 774.0
+rect_scale = Vector2( 0.2, 0.2 )
+icon = ExtResource( 4 )
+flat = true
+
 [node name="quit" type="Button" parent="."]
 margin_left = 483.331
 margin_top = 432.298
 margin_right = 686.331
 margin_bottom = 633.298
 rect_scale = Vector2( 0.3, 0.3 )
-icon = ExtResource( 4 )
+icon = ExtResource( 5 )
 flat = true
 
 [node name="start2" type="Label" parent="."]
@@ -124,14 +135,15 @@ custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "QUITTER"
 
 [node name="Sprite" type="Sprite" parent="."]
+editor/display_folded = true
 position = Vector2( 512.523, 300.205 )
 scale = Vector2( 1.00479, 0.591102 )
 z_index = -1
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 vframes = 2
 hframes = 2
 frame = 3
-script = ExtResource( 7 )
+script = ExtResource( 8 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite"]
 anims/animationmenu = SubResource( 3 )
@@ -143,7 +155,7 @@ margin_top = 458.574
 margin_right = 856.944
 margin_bottom = 848.574
 rect_scale = Vector2( 0.25, 0.25 )
-icon = ExtResource( 8 )
+icon = ExtResource( 9 )
 flat = true
 
 [node name="return2" type="Label" parent="."]
@@ -167,7 +179,7 @@ margin_top = -100.675
 margin_right = 90.9385
 margin_bottom = 289.325
 rect_scale = Vector2( 0.3, 0.3 )
-icon = ExtResource( 9 )
+icon = ExtResource( 10 )
 flat = true
 
 [node name="begin" type="Button" parent="."]
@@ -177,7 +189,7 @@ margin_top = 223.475
 margin_right = 930.681
 margin_bottom = 581.476
 rect_scale = Vector2( 0.25, 0.25 )
-icon = ExtResource( 10 )
+icon = ExtResource( 11 )
 flat = true
 
 [node name="begin2" type="Label" parent="."]
@@ -221,7 +233,7 @@ custom_fonts/font = SubResource( 8 )
 text = "VOLUME"
 
 [node name="soundtest" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 11 )
+stream = ExtResource( 12 )
 
 [node name="bonus" type="Button" parent="."]
 visible = false
@@ -230,7 +242,7 @@ margin_top = 151.196
 margin_right = 714.54
 margin_bottom = 253.196
 rect_scale = Vector2( 0.5, 0.5 )
-icon = ExtResource( 12 )
+icon = ExtResource( 13 )
 flat = true
 
 [node name="malus" type="Button" parent="."]
@@ -240,11 +252,11 @@ margin_top = 149.786
 margin_right = 467.137
 margin_bottom = 251.786
 rect_scale = Vector2( 0.5, 0.5 )
-icon = ExtResource( 13 )
+icon = ExtResource( 14 )
 flat = true
 
 [node name="menumusic" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 14 )
+stream = ExtResource( 15 )
 
 [node name="fullscreen" type="Button" parent="."]
 visible = false
@@ -253,7 +265,7 @@ margin_top = 212.091
 margin_right = 846.444
 margin_bottom = 572.091
 rect_scale = Vector2( 0.3, 0.3 )
-icon = ExtResource( 15 )
+icon = ExtResource( 16 )
 flat = true
 
 [node name="fullscreen2" type="Label" parent="."]
@@ -272,27 +284,28 @@ margin_top = 8.36853
 margin_right = 651.796
 margin_bottom = 238.369
 rect_scale = Vector2( 0.4, 0.4 )
-icon = ExtResource( 16 )
+icon = ExtResource( 17 )
 flat = true
 
 [node name="control" type="Button" parent="."]
-margin_left = 1.948
-margin_top = 379.864
-margin_right = 1037.95
-margin_bottom = 1409.86
+margin_left = 2.0
+margin_top = 380.0
+margin_right = 1038.0
+margin_bottom = 1410.0
 rect_scale = Vector2( 0.1, 0.1 )
-icon = ExtResource( 17 )
+icon = ExtResource( 18 )
 flat = true
 
 [node name="sound" type="Sprite" parent="."]
 visible = false
 position = Vector2( 513.752, 138.624 )
 scale = Vector2( 0.186104, 0.186104 )
-texture = ExtResource( 18 )
+texture = ExtResource( 19 )
 vframes = 5
 hframes = 4
 
 [node name="control2" type="Node" parent="."]
+editor/display_folded = true
 
 [node name="upbutton" type="Button" parent="control2"]
 visible = false
@@ -300,7 +313,7 @@ margin_left = 457.245
 margin_top = 7.3879
 margin_right = 568.245
 margin_bottom = 110.388
-custom_fonts/font = ExtResource( 19 )
+custom_fonts/font = ExtResource( 20 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -311,7 +324,7 @@ margin_left = 78.245
 margin_top = 8.3879
 margin_right = 189.245
 margin_bottom = 111.388
-custom_fonts/font = ExtResource( 19 )
+custom_fonts/font = ExtResource( 20 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -322,7 +335,7 @@ margin_left = 317.663
 margin_top = 148.622
 margin_right = 428.663
 margin_bottom = 251.622
-custom_fonts/font = ExtResource( 19 )
+custom_fonts/font = ExtResource( 20 )
 
 [node name="rightbutton" type="Button" parent="control2"]
 visible = false
@@ -330,7 +343,7 @@ margin_left = 599.923
 margin_top = 148.622
 margin_right = 710.923
 margin_bottom = 251.622
-custom_fonts/font = ExtResource( 19 )
+custom_fonts/font = ExtResource( 20 )
 
 [node name="firebutton" type="Button" parent="control2"]
 visible = false
@@ -338,7 +351,7 @@ margin_left = 808.696
 margin_top = 303.949
 margin_right = 919.696
 margin_bottom = 406.949
-custom_fonts/font = ExtResource( 19 )
+custom_fonts/font = ExtResource( 20 )
 
 [node name="downbutton" type="Button" parent="control2"]
 visible = false
@@ -346,7 +359,7 @@ margin_left = 453.544
 margin_top = 292.383
 margin_right = 564.544
 margin_bottom = 395.383
-custom_fonts/font = ExtResource( 19 )
+custom_fonts/font = ExtResource( 20 )
 
 [node name="pausebutton" type="Button" parent="control2"]
 visible = false
@@ -354,7 +367,7 @@ margin_left = 807.623
 margin_top = 13.4626
 margin_right = 918.623
 margin_bottom = 116.463
-custom_fonts/font = ExtResource( 19 )
+custom_fonts/font = ExtResource( 20 )
 
 [node name="up" type="Label" parent="control2"]
 visible = false
@@ -428,7 +441,7 @@ text = "PAUSE"
 visible = false
 position = Vector2( 515.431, 303.429 )
 scale = Vector2( 33.2144, 19.9643 )
-texture = ExtResource( 20 )
+texture = ExtResource( 21 )
 
 [node name="text" type="Label" parent="control2/blacktext"]
 margin_left = -15.3876
@@ -436,19 +449,36 @@ margin_top = -18.2642
 margin_right = 191.612
 margin_bottom = 34.7358
 rect_scale = Vector2( 0.6, 0.6 )
-custom_fonts/font = ExtResource( 21 )
+custom_fonts/font = ExtResource( 22 )
 text = "APUYEZ 
 SUR UNE 
 TOUCHE"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="succes2" type="Node" parent="."]
+
+[node name="cresucces" type="Sprite" parent="succes2"]
+visible = false
+position = Vector2( 159.424, 94.3529 )
+scale = Vector2( 0.200169, 0.200169 )
+texture = ExtResource( 23 )
+
+[node name="leetsucces" type="Sprite" parent="succes2"]
+visible = false
+position = Vector2( 297.424, 94.3529 )
+scale = Vector2( 0.200169, 0.200169 )
+texture = ExtResource( 23 )
 [connection signal="mouse_entered" from="start" to="." method="_on_start_mouse_entered"]
 [connection signal="mouse_exited" from="start" to="." method="_on_start_mouse_exited"]
 [connection signal="pressed" from="start" to="." method="_on_start_pressed"]
 [connection signal="mouse_entered" from="option" to="." method="_on_option_mouse_entered"]
 [connection signal="mouse_exited" from="option" to="." method="_on_option_mouse_exited"]
 [connection signal="pressed" from="option" to="." method="_on_option_pressed"]
+[connection signal="mouse_entered" from="succes" to="." method="_on_succes_mouse_entered"]
+[connection signal="mouse_exited" from="succes" to="." method="_on_succes_mouse_exited"]
+[connection signal="pressed" from="succes" to="." method="_on_succes_pressed"]
 [connection signal="mouse_entered" from="quit" to="." method="_on_quit_mouse_entered"]
 [connection signal="mouse_exited" from="quit" to="." method="_on_quit_mouse_exited"]
 [connection signal="pressed" from="quit" to="." method="_on_quit_pressed"]

@@ -87,6 +87,8 @@ func _on_quitb_pressed():
 	get_tree().quit()
 
 func end():
+	$sond/musique.stream=load("res://texture/knight quest/tutoriel music.wav")
+	$sond/musique.play()
 	$playernode/player.position=Vector2(517.205,521.11)
 	$cinema/blacktext.visible=true
 	$cinema/blacktext/text.text="FÉLICITATION!"
