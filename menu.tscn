@@ -305,7 +305,6 @@ vframes = 5
 hframes = 4
 
 [node name="control2" type="Node" parent="."]
-editor/display_folded = true
 
 [node name="upbutton" type="Button" parent="control2"]
 visible = false

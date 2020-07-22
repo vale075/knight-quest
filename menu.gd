@@ -529,6 +529,26 @@ func _on_succes_pressed():
 	$succes2/kingteamsucces.visible=true
 	$succes2/toostrongsucces.visible=true
 	$succes2/allenemysucces.visible=true
+	$control2/upbutton.visible=false
+	$control2/up.visible=false
+	$control2/leftbutton.visible=false
+	$control2/left.visible=false
+	$control2/rightbutton.visible=false
+	$control2/right.visible=false
+	$control2/firebutton.visible=false
+	$control2/fire.visible=false
+	$control2/downbutton.visible=false
+	$control2/down.visible=false
+	$control2/pausebutton.visible=false
+	$control2/pause.visible=false
+	$control2/accept.visible=false
+	$control2/acceptbutton.visible=false
+	$sound.visible=false
+	$sound2.visible=false
+	$bonus.visible=false
+	$malus.visible=false
+	$fullscreen.visible=false
+	$fullscreen2.visible=false
 	var succes=File.new()
 	succes.open("res://SAVE/succes.tres", File.READ)
 	var linesucces = "line"
