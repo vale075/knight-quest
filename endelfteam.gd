@@ -162,10 +162,8 @@ func end():
 			i.queue_free()
 	var succes = File.new()
 	succes.open("res://SAVE/succes.tres", File.READ_WRITE)
-	var linesucces= succes.get_line()
-	while not linesucces=="":
-		linesucces= succes.get_line()
-	succes.get_line()
+	var linesucces= succes.get_as_text()
+	succes.store_line(linesucces)
 	succes.store_line("selfteam")
 	succes.close()
 	succes = File.new()

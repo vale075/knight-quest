@@ -1,7 +1,7 @@
 extends Node
 
 var pause=false
-var enemyspeed= 4
+var enemyspeed= 3
 var finish = false
 var enemi = 0
 var enemylife=0
@@ -60,7 +60,7 @@ func _on_Button_pressed():
 	enemi=0
 	enemylife=0
 	finish = false
-	enemyspeed=4
+	enemyspeed=3
 	for n in get_children():
 		if n.name != "Timer":
 			remove_child(n)

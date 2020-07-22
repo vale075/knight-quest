@@ -242,6 +242,8 @@ func die():
 		_wait(2)
 		var succes=File.new()
 		succes.open("res://SAVE/succes.tres", File.READ_WRITE)
+		var linesucces= succes.get_as_text()
+		succes.store_line(linesucces)
 		succes.store_line("scre")
 		succes.close()
 		get_tree().quit()
