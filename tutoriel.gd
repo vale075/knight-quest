@@ -9,7 +9,7 @@ var cine=0
 var fight=false
 var okok=false
 var another=false
-var speed = float(18)
+var speed = float(1)
 var musique = true
 var easter= false
 
