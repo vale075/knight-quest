@@ -8,7 +8,7 @@ func _process(delta):
 	if activate ==false:
 		if finish == false:
 			$Sprite2.scale.x= pv/9
-		if pv == 0:
+		if pv <1:
 			$Sprite2.scale.x=0
 			get_node("../..").over()
 			activate=true
@@ -32,8 +32,12 @@ func _on_Button_pressed():
 	get_node("../../restartmenu/quit2").visible=false
 	get_node("../../restartmenu/home2").visible=false
 	get_node("../../restartmenu/home").visible=false
-	pv = float(13)
+	pv = float(9)
 	activate=false
 	finish = false
 	get_node("../../restartmenu/Button").visibility2()
 	get_node("../..").oversound = false
+
+func heal():
+	if pv < 9:
+		pv+=1

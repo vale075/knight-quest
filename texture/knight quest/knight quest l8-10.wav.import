@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/knight quest l8-10.wav-458a0c666961997e19fe0409667075e4.sample"
+
+[deps]
+
+source_file="res://texture/knight quest/knight quest l8-10.wav"
+dest_files=[ "res://.import/knight quest l8-10.wav-458a0c666961997e19fe0409667075e4.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

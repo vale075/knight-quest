@@ -110,7 +110,7 @@ flat = true
 [node name="quit" type="Button" parent="."]
 margin_left = 483.331
 margin_top = 432.298
-margin_right = 686.331
+margin_right = 687.331
 margin_bottom = 633.298
 rect_scale = Vector2( 0.3, 0.3 )
 icon = ExtResource( 5 )
@@ -465,9 +465,87 @@ position = Vector2( 159.424, 94.3529 )
 scale = Vector2( 0.200169, 0.200169 )
 texture = ExtResource( 23 )
 
+[node name="kingbloodsucces" type="Sprite" parent="succes2"]
+visible = false
+position = Vector2( 159.424, 218.353 )
+scale = Vector2( 0.200169, 0.200169 )
+texture = ExtResource( 23 )
+
+[node name="allbloodsucces" type="Sprite" parent="succes2"]
+visible = false
+position = Vector2( 295.424, 218.353 )
+scale = Vector2( 0.200169, 0.200169 )
+texture = ExtResource( 23 )
+
+[node name="timegoodsucces" type="Sprite" parent="succes2"]
+visible = false
+position = Vector2( 446.424, 218.353 )
+scale = Vector2( 0.200169, 0.200169 )
+texture = ExtResource( 23 )
+
+[node name="timebadsucces" type="Sprite" parent="succes2"]
+visible = false
+position = Vector2( 589.424, 218.353 )
+scale = Vector2( 0.200169, 0.200169 )
+texture = ExtResource( 23 )
+
+[node name="elfbloodsucces" type="Sprite" parent="succes2"]
+visible = false
+position = Vector2( 726.424, 218.353 )
+scale = Vector2( 0.200169, 0.200169 )
+texture = ExtResource( 23 )
+
+[node name="badelfsucces" type="Sprite" parent="succes2"]
+visible = false
+position = Vector2( 864.424, 218.353 )
+scale = Vector2( 0.200169, 0.200169 )
+texture = ExtResource( 23 )
+
+[node name="kingteamsucces" type="Sprite" parent="succes2"]
+visible = false
+position = Vector2( 864.424, 351.353 )
+scale = Vector2( 0.200169, 0.200169 )
+texture = ExtResource( 23 )
+
+[node name="toostrongsucces" type="Sprite" parent="succes2"]
+visible = false
+position = Vector2( 728.424, 351.353 )
+scale = Vector2( 0.200169, 0.200169 )
+texture = ExtResource( 23 )
+
+[node name="allenemysucces" type="Sprite" parent="succes2"]
+visible = false
+position = Vector2( 591.424, 351.353 )
+scale = Vector2( 0.200169, 0.200169 )
+texture = ExtResource( 23 )
+
 [node name="leetsucces" type="Sprite" parent="succes2"]
 visible = false
 position = Vector2( 297.424, 94.3529 )
+scale = Vector2( 0.200169, 0.200169 )
+texture = ExtResource( 23 )
+
+[node name="elfteamsucces" type="Sprite" parent="succes2"]
+visible = false
+position = Vector2( 444.424, 94.3529 )
+scale = Vector2( 0.200169, 0.200169 )
+texture = ExtResource( 23 )
+
+[node name="peacesucces" type="Sprite" parent="succes2"]
+visible = false
+position = Vector2( 589.424, 94.3529 )
+scale = Vector2( 0.200169, 0.200169 )
+texture = ExtResource( 23 )
+
+[node name="endwarssucces" type="Sprite" parent="succes2"]
+visible = false
+position = Vector2( 726.424, 94.3529 )
+scale = Vector2( 0.200169, 0.200169 )
+texture = ExtResource( 23 )
+
+[node name="badkingsucces" type="Sprite" parent="succes2"]
+visible = false
+position = Vector2( 865.424, 94.3529 )
 scale = Vector2( 0.200169, 0.200169 )
 texture = ExtResource( 23 )
 [connection signal="mouse_entered" from="start" to="." method="_on_start_mouse_entered"]

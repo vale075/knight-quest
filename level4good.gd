@@ -137,7 +137,7 @@ func end():
 		var save_game = File.new()
 		save_game.open("res://save/save.tres", File.WRITE)
 		var save={
-			"res://level4verybad.tscn"  :  "",
+			"res://level5verygood.tscn"  :  "",
 			pvextract+str($mur/base.pv)  :  ""
 		}
 		for i in save:
@@ -164,11 +164,12 @@ func end():
 		$cinema/blacktext.visible=false
 		_wait(2)
 		yield(self,"timer_end")
+		get_tree().change_scene("res://level5verygood.tscn")
 	else:
 		var save_game = File.new()
 		save_game.open("res://save/save.tres", File.WRITE)
 		var save={
-			"res://level4verybad.tscn"  :  "",
+			"res://level5normal.tscn"  :  "",
 			pvextract+str($mur/base.pv)  :  ""
 		}
 		for i in save:
@@ -195,5 +196,6 @@ func end():
 		$cinema/blacktext.visible=false
 		_wait(2)
 		yield(self,"timer_end")
+		get_tree().change_scene("res://level5normal.tscn")
 func touch():
 	pass

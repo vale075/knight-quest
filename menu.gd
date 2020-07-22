@@ -61,6 +61,9 @@ func _on__return_mouse_exited():
 
 
 func _on__return_pressed():
+	$succes2/allbloodsucces.visible=false
+	$succes2/elfteamsucces.visible=false
+	$succes2/peacesucces.visible=false
 	$start.visible=true
 	$quit.visible=true
 	$start2.visible=true
@@ -77,6 +80,9 @@ func _on__return_pressed():
 	$malus.visible=false
 	$fullscreen.visible=false
 	$fullscreen2.visible=false
+	$succes2/timebadsucces.visible=false
+	$succes2/elfbloodsucces.visible=false
+	$succes2/timegoodsucces.visible=false
 	$control2/upbutton.visible=false
 	$control2/up.visible=false
 	$control2/leftbutton.visible=false
@@ -89,10 +95,17 @@ func _on__return_pressed():
 	$control2/down.visible=false
 	$control2/pausebutton.visible=false
 	$control2/pause.visible=false
+	$succes2/badelfsucces.visible=false
 	$"control2/acceptbutton".visible=false
 	$"control2/accept".visible=false
 	$succes2/cresucces.visible=false
 	$succes2/leetsucces.visible=false
+	$succes2/endwarssucces.visible=false
+	$succes2/badkingsucces.visible=false
+	$succes2/kingbloodsucces.visible=false
+	$succes2/kingteamsucces.visible=false
+	$succes2/toostrongsucces.visible=false
+	$succes2/allenemysucces.visible=false
 
 func _on__continue_mouse_entered():
 	$_continue.icon=load("res://texture/static/continue2.png")
@@ -162,6 +175,8 @@ func _on_option_mouse_exited():
 
 
 func _on_option_pressed():
+	$succes2/elfteamsucces.visible=false
+	$succes2/peacesucces.visible=false
 	$start.visible=false
 	$quit.visible=false
 	$start2.visible=false
@@ -173,6 +188,7 @@ func _on_option_pressed():
 	$begin.visible=false
 	$begin2.visible=false
 	$sound.visible=true
+	$succes2/timegoodsucces.visible=false
 	$sound2.visible=true
 	$bonus.visible=true
 	$malus.visible=true
@@ -194,6 +210,16 @@ func _on_option_pressed():
 	$control2/pause.visible=false
 	$succes2/cresucces.visible=false
 	$succes2/leetsucces.visible=false
+	$succes2/endwarssucces.visible=false
+	$succes2/badkingsucces.visible=false
+	$succes2/kingbloodsucces.visible=false
+	$succes2/allbloodsucces.visible=false
+	$succes2/timebadsucces.visible=false
+	$succes2/elfbloodsucces.visible=false
+	$succes2/badelfsucces.visible=false
+	$succes2/kingteamsucces.visible=false
+	$succes2/toostrongsucces.visible=false
+	$succes2/allenemysucces.visible=false
 	$"control2/acceptbutton".visible=false
 	$"control2/accept".visible=false
 
@@ -301,6 +327,19 @@ func _on_control_pressed():
 	$control2/pause.visible=true
 	$succes2/cresucces.visible=false
 	$succes2/leetsucces.visible=false
+	$succes2/elfteamsucces.visible=false
+	$succes2/peacesucces.visible=false
+	$succes2/endwarssucces.visible=false
+	$succes2/badkingsucces.visible=false
+	$succes2/kingbloodsucces.visible=false
+	$succes2/allbloodsucces.visible=false
+	$succes2/timegoodsucces.visible=false
+	$succes2/timebadsucces.visible=false
+	$succes2/elfbloodsucces.visible=false
+	$succes2/badelfsucces.visible=false
+	$succes2/kingteamsucces.visible=false
+	$succes2/toostrongsucces.visible=false
+	$succes2/allenemysucces.visible=false
 	$"control2/acceptbutton".visible=true
 	$"control2/accept".visible=true
 	$"control2/acceptbutton".text=InputMap.get_action_list("ok")[0].as_text()
@@ -475,6 +514,21 @@ func _on_succes_pressed():
 	$begin2.visible=false
 	$succes2/cresucces.visible=true
 	$succes2/leetsucces.visible=true
+	$succes2/elfteamsucces.visible=true
+	$succes2/peacesucces.visible=true
+	$_return.visible=true
+	$return2.visible=true
+	$succes2/endwarssucces.visible=true
+	$succes2/badkingsucces.visible=true
+	$succes2/kingbloodsucces.visible=true
+	$succes2/allbloodsucces.visible=true
+	$succes2/timegoodsucces.visible=true
+	$succes2/timebadsucces.visible=true
+	$succes2/elfbloodsucces.visible=true
+	$succes2/badelfsucces.visible=true
+	$succes2/kingteamsucces.visible=true
+	$succes2/toostrongsucces.visible=true
+	$succes2/allenemysucces.visible=true
 	var succes=File.new()
 	succes.open("res://SAVE/succes.tres", File.READ)
 	var linesucces = "line"
@@ -484,4 +538,30 @@ func _on_succes_pressed():
 			$succes2/cresucces.texture=load("res://texture/knight quest/scre.png")
 		if "sleet" in linesucces:
 			$succes2/leetsucces.texture=load("res://texture/knight quest/sleet.png")
+		if "selfteam" in linesucces:
+			$succes2/elfteamsucces.texture=load("res://texture/knight quest/selfteam.png")
+		if "speace" in linesucces:
+			$succes2/peacesucces.texture=load("res://texture/knight quest/speace.png")
+		if "sendwars" in linesucces:
+			$succes2/endwarssucces.texture=load("res://texture/knight quest/sendwars.png")
+		if "sbadking" in linesucces:
+			$succes2/endwarssucces.texture=load("res://texture/knight quest/sbadking.png")
+		if "skingblood" in linesucces:
+			$succes2/kingbloodsucces.texture=load("res://texture/knight quest/kingblood.png")
+		if "sallblood" in linesucces:
+			$succes2/allbloodsucces.texture=load("res://texture/knight quest/kingblood.png")
+		if "stimegood" in linesucces:
+			$succes2/timegoodsucces.texture=load("res://texture/knight quest/timegood.png")
+		if "stimebad" in linesucces:
+			$succes2/timebadsucces.texture=load("res://texture/knight quest/timebad.png")
+		if "stimebad" in linesucces:
+			$succes2/elfbloodsucces.texture=load("res://texture/knight quest/selfblood.png")
+		if "sbadelf" in linesucces:
+			$succes2/badelfsucces.texture=load("res://texture/knight quest/sbadelf.png")
+		if "skingteam" in linesucces:
+			$succes2/kingteamsucces.texture=load("res://texture/knight quest/sendkingteam.png")
+		if "stoostrong" in linesucces:
+			$succes2/toostrongsucces.texture=load("res://texture/knight quest/stoostrong.png")
+		if "sallenemy" in linesucces:
+			$succes2/allenemysucces.texture=load("res://texture/knight quest/sallenemy.png")
 	succes.close()

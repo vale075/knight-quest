@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://darkfireelfkingenemy.gd" type="Script" id=1]
+[ext_resource path="res://texture/knight quest/darkfire.png" type="Texture" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 19.6097, 17.9922 )
+
+[node name="boomer" type="KinematicBody2D"]
+position = Vector2( -0.12672, 0.253429 )
+script = ExtResource( 1 )
+
+[node name="enemy" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="enemy"]
+position = Vector2( 0.332169, 0.445351 )
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 6.84787, 4.96505 )
+scale = Vector2( 0.0871983, 0.0871983 )
+texture = ExtResource( 2 )
+
+[node name="Timer" type="Timer" parent="."]
+[connection signal="body_entered" from="enemy" to="." method="_on_Area2D_body_entered"]

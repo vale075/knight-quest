@@ -134,6 +134,12 @@ func end():
 				savepv=""
 				file.close()
 	if $mur/base.pv<5:
+		var save_game = File.new()
+		save_game.open("res://save/save.tres", File.WRITE)
+		var save={
+			"res://level5bad.tscn"  :  "",
+			pvextract+str($mur/base.pv)  :  ""
+		}
 		$cinema/blacktext/text.text="JE T'EN PRIE \n EPARGNE NOUS"
 		$cinema/blacktext.visible=true
 		yield(self,"ok")
@@ -155,6 +161,7 @@ func end():
 		$cinema/blacktext.visible=false
 		_wait(2)
 		yield(self,"timer_end")
+		get_tree().change_scene("res://level5bad.tscn")
 	else:
 		var save_game = File.new()
 		save_game.open("res://save/save.tres", File.WRITE)
@@ -165,26 +172,6 @@ func end():
 		for i in save:
 			save_game.store_line(i)
 		save_game.close()
-		$cinema/blacktext/text.text="TU ES UN \n BON CHEVALIER"
-		$cinema/blacktext.visible=true
-		yield(self,"ok")
-		$cinema/blacktext/text.text=""
-		$cinema/blacktext.visible=false
-		_wait(2)
-		yield(self,"timer_end")
-		$cinema/blacktext/text.text="C'EST A DIRE \n UN MONSTRE"
-		$cinema/blacktext.visible=true
-		yield(self,"ok")
-		$cinema/blacktext/text.text=""
-		$cinema/blacktext.visible=false
-		_wait(2)
-		yield(self,"timer_end")
-		$cinema/blacktext/text.text="TU NE VAUT RIEN"
-		$cinema/blacktext.visible=true
-		yield(self,"ok")
-		$cinema/blacktext/text.text=""
-		$cinema/blacktext.visible=false
-		_wait(2)
-		yield(self,"timer_end")
+		get_tree().change_scene("res://level4verybad.tscn")
 func touch():
 	pass

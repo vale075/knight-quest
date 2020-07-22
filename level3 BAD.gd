@@ -171,7 +171,7 @@ func end():
 		get_tree().change_scene("res://level4verybad.tscn")
 	else:
 		var save={
-			"res://level4bad.tscn"  :  "",
+			"res://level4good.tscn"  :  "",
 			pvextract+str($mur/base.pv)  :  ""
 		}
 		var save_game = File.new()

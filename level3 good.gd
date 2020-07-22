@@ -160,7 +160,7 @@ func end():
 				file.close()
 	if $mur/base.pv<5:
 		var save={
-			"res://level4verybad.tscn"  :  "",
+			"res://level4verygood.tscn"  :  "",
 			pvextract+str($mur/base.pv)  :  ""
 		}
 		var save_game = File.new()
@@ -171,7 +171,7 @@ func end():
 		get_tree().change_scene("res://level4verygood.tscn")
 	else:
 		var save={
-			"res://level4verybad.tscn"  :  "",
+			"res://level4normal.tscn"  :  "",
 			pvextract+str($mur/base.pv)  :  ""
 		}
 		var save_game = File.new()
@@ -179,7 +179,7 @@ func end():
 		for i in save:
 			save_game.store_line(i)
 		save_game.close()
-		get_tree().change_scene("res://level4bad.tscn")
+		get_tree().change_scene("res://level4normal.tscn")
 
 func touch():
 	pass

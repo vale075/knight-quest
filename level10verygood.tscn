@@ -1,0 +1,367 @@
+[gd_scene load_steps=34 format=2]
+
+[ext_resource path="res://level10verygood.gd" type="Script" id=1]
+[ext_resource path="res://texture/knight quest/mur.png" type="Texture" id=2]
+[ext_resource path="res://base.tscn" type="PackedScene" id=3]
+[ext_resource path="res://texture/knight quest/murback.png" type="Texture" id=4]
+[ext_resource path="res://enemisL10.gd" type="Script" id=5]
+[ext_resource path="res://playernode.gd" type="Script" id=6]
+[ext_resource path="res://player.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scorenode.gd" type="Script" id=8]
+[ext_resource path="res://texture/static/Pixeled.ttf" type="DynamicFontData" id=9]
+[ext_resource path="res://texture/knight quest/knight quest l8-10.wav" type="AudioStream" id=10]
+[ext_resource path="res://texture/static/hit!.wav" type="AudioStream" id=11]
+[ext_resource path="res://texture/static/enemykill.wav" type="AudioStream" id=12]
+[ext_resource path="res://texture/static/gameover.wav" type="AudioStream" id=13]
+[ext_resource path="res://firerecharge.tscn" type="PackedScene" id=14]
+[ext_resource path="res://restartmenu.gd" type="Script" id=15]
+[ext_resource path="res://texture/knight quest/replay1.png" type="Texture" id=16]
+[ext_resource path="res://Button.gd" type="Script" id=17]
+[ext_resource path="res://texture/static/quit.png" type="Texture" id=18]
+[ext_resource path="res://texture/static/home.png" type="Texture" id=19]
+[ext_resource path="res://texture/static/unpause.png" type="Texture" id=20]
+[ext_resource path="res://texture/knight quest/salle trone.png" type="Texture" id=21]
+[ext_resource path="res://texture/static/blackback.png" type="Texture" id=22]
+[ext_resource path="res://text+back.tres" type="DynamicFont" id=23]
+[ext_resource path="res://texture/knight quest/kingidle.png" type="Texture" id=24]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 537.666, 31.8961 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 28.2174, 329.782 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 35
+font_data = ExtResource( 9 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 35
+font_data = ExtResource( 9 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 25
+font_data = ExtResource( 9 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 25
+font_data = ExtResource( 9 )
+
+[sub_resource type="DynamicFont" id=7]
+size = 25
+font_data = ExtResource( 9 )
+
+[sub_resource type="DynamicFont" id=8]
+size = 25
+font_data = ExtResource( 9 )
+
+[sub_resource type="Animation" id=9]
+resource_name = "normal"
+loop = true
+step = 0.25
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.25, 0.5, 0.75 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3 ]
+}
+
+[node name="main" type="Node"]
+script = ExtResource( 1 )
+
+[node name="mur" type="Node" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="mur"]
+
+[node name="Sprite" type="Sprite" parent="mur/StaticBody2D"]
+position = Vector2( 342.256, 115.649 )
+rotation = 1.5708
+scale = Vector2( 0.363206, 1.93856 )
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="mur/StaticBody2D"]
+position = Vector2( 512.186, -2.39899 )
+shape = SubResource( 1 )
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="mur"]
+position = Vector2( 1027.89, 183.391 )
+
+[node name="Sprite" type="Sprite" parent="mur/StaticBody2D4"]
+position = Vector2( 91.2249, 206.112 )
+scale = Vector2( 0.302264, 1.17134 )
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="mur/StaticBody2D4"]
+position = Vector2( -4.23779, 116.969 )
+shape = SubResource( 2 )
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="mur"]
+position = Vector2( 13.6361, 600.849 )
+
+[node name="Sprite" type="Sprite" parent="mur/StaticBody2D2"]
+position = Vector2( 341.547, 94.1374 )
+rotation = 1.5708
+scale = Vector2( 0.294716, 1.97127 )
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="mur/StaticBody2D2"]
+position = Vector2( 502.1, -4.91095 )
+shape = SubResource( 1 )
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="mur"]
+position = Vector2( -1.43201, 183.391 )
+
+[node name="Sprite" type="Sprite" parent="mur/StaticBody2D3"]
+position = Vector2( 92.3826, 211.557 )
+scale = Vector2( 0.289741, 1.19594 )
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="mur/StaticBody2D3"]
+position = Vector2( -3.51129, 116.048 )
+shape = SubResource( 2 )
+
+[node name="base" parent="mur" instance=ExtResource( 3 )]
+position = Vector2( 508.191, 499.998 )
+z_index = -2
+
+[node name="background" type="Sprite" parent="mur"]
+position = Vector2( 496.637, 393.236 )
+scale = Vector2( 1.26142, 1.22491 )
+z_index = -3
+texture = ExtResource( 4 )
+
+[node name="enemis" type="Node" parent="."]
+script = ExtResource( 5 )
+
+[node name="Timer" type="Timer" parent="enemis"]
+wait_time = 0.5
+autostart = true
+
+[node name="playernode" type="Node" parent="."]
+script = ExtResource( 6 )
+
+[node name="player" parent="playernode" instance=ExtResource( 7 )]
+position = Vector2( 513.124, 304.811 )
+z_index = 1
+collision/safe_margin = 0.001
+
+[node name="scorenode" type="Node" parent="."]
+script = ExtResource( 8 )
+
+[node name="score" type="Label" parent="scorenode"]
+margin_left = 37.7296
+margin_top = 434.434
+margin_right = 212.73
+margin_bottom = 532.434
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_outline_modulate = Color( 0.0941176, 0.647059, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "score"
+
+[node name="combo" type="Label" parent="scorenode"]
+margin_left = 774.948
+margin_top = 307.52
+margin_right = 956.948
+margin_bottom = 405.52
+custom_fonts/font = SubResource( 4 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "combo"
+
+[node name="sond" type="Node" parent="."]
+
+[node name="musique" type="AudioStreamPlayer" parent="sond"]
+stream = ExtResource( 10 )
+
+[node name="hit" type="AudioStreamPlayer" parent="sond"]
+stream = ExtResource( 11 )
+
+[node name="enemykill" type="AudioStreamPlayer" parent="sond"]
+stream = ExtResource( 12 )
+volume_db = -16.64
+
+[node name="gameover" type="AudioStreamPlayer" parent="sond"]
+stream = ExtResource( 13 )
+
+[node name="firerecharge" parent="." instance=ExtResource( 14 )]
+position = Vector2( 904.648, 491.095 )
+
+[node name="restartmenu" type="Node" parent="."]
+script = ExtResource( 15 )
+
+[node name="Button" type="Button" parent="restartmenu"]
+visible = false
+margin_left = 421.55
+margin_top = 91.5364
+margin_right = 881.55
+margin_bottom = 513.536
+rect_scale = Vector2( 0.35, 0.35 )
+icon = ExtResource( 16 )
+flat = true
+script = ExtResource( 17 )
+
+[node name="quit" type="Button" parent="restartmenu"]
+visible = false
+margin_left = 527.807
+margin_top = 304.418
+margin_right = 731.807
+margin_bottom = 502.418
+rect_scale = Vector2( 0.35, 0.35 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+icon = ExtResource( 18 )
+flat = true
+
+[node name="quitb" type="Button" parent="restartmenu"]
+visible = false
+margin_left = 461.185
+margin_top = 302.567
+margin_right = 665.185
+margin_bottom = 500.567
+rect_scale = Vector2( 0.35, 0.35 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+icon = ExtResource( 18 )
+flat = true
+
+[node name="recommencer" type="Label" parent="restartmenu"]
+visible = false
+margin_left = 358.0
+margin_top = 220.0
+margin_right = 643.0
+margin_bottom = 290.0
+custom_fonts/font = SubResource( 5 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "RECOMMENCER"
+
+[node name="quit2" type="Label" parent="restartmenu"]
+visible = false
+margin_left = 477.775
+margin_top = 361.176
+margin_right = 652.775
+margin_bottom = 431.176
+custom_fonts/font = SubResource( 6 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "QUITTER"
+
+[node name="quitb2" type="Label" parent="restartmenu"]
+visible = false
+margin_left = 418.555
+margin_top = 357.475
+margin_right = 593.555
+margin_bottom = 427.475
+custom_fonts/font = SubResource( 6 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "QUITTER"
+
+[node name="home2" type="Label" parent="restartmenu"]
+visible = false
+margin_left = 359.37
+margin_top = 362.79
+margin_right = 464.37
+margin_bottom = 432.79
+custom_fonts/font = SubResource( 7 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "MENU"
+
+[node name="home" type="Button" parent="restartmenu"]
+visible = false
+margin_left = 365.612
+margin_top = 285.032
+margin_right = 601.612
+margin_bottom = 547.032
+rect_scale = Vector2( 0.35, 0.35 )
+icon = ExtResource( 19 )
+flat = true
+
+[node name="unpause" type="Button" parent="restartmenu"]
+visible = false
+margin_left = 460.003
+margin_top = 89.1905
+margin_right = 632.003
+margin_bottom = 319.191
+rect_scale = Vector2( 0.4, 0.4 )
+icon = ExtResource( 20 )
+flat = true
+
+[node name="unpause2" type="Label" parent="restartmenu"]
+visible = false
+margin_left = 385.566
+margin_top = 181.166
+margin_right = 610.566
+margin_bottom = 251.166
+custom_fonts/font = SubResource( 8 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "REPRENDRE"
+
+[node name="cinema" type="Node" parent="."]
+
+[node name="trone" type="Sprite" parent="cinema"]
+visible = false
+position = Vector2( 507.433, 303.091 )
+scale = Vector2( 0.413189, 0.405123 )
+texture = ExtResource( 21 )
+
+[node name="blacktext" type="Sprite" parent="cinema"]
+visible = false
+position = Vector2( 515.251, 301.943 )
+scale = Vector2( 33.2032, 19.8714 )
+z_index = 1
+texture = ExtResource( 22 )
+
+[node name="text" type="Label" parent="cinema/blacktext"]
+margin_left = -15.0
+margin_top = -15.0
+margin_right = 291.0
+margin_bottom = 281.0
+rect_scale = Vector2( 0.1, 0.1 )
+custom_fonts/font = ExtResource( 23 )
+text = "test"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="indication" type="Label" parent="cinema/blacktext"]
+margin_left = -15.0
+margin_top = 10.0
+margin_right = 283.0
+margin_bottom = 56.0
+rect_scale = Vector2( 0.1, 0.1 )
+custom_fonts/font = ExtResource( 23 )
+text = "TEST"
+
+[node name="roi" type="Sprite" parent="cinema"]
+visible = false
+position = Vector2( 510.016, 182.165 )
+scale = Vector2( 0.12751, 0.12751 )
+texture = ExtResource( 24 )
+vframes = 2
+hframes = 2
+frame = 3
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="cinema/roi"]
+anims/normal = SubResource( 9 )
+[connection signal="timeout" from="enemis/Timer" to="enemis" method="_on_Timer_timeout"]
+[connection signal="finished" from="sond/musique" to="." method="_on_musique_finished"]
+[connection signal="mouse_entered" from="restartmenu/Button" to="restartmenu" method="_on_Button_mouse_entered"]
+[connection signal="mouse_exited" from="restartmenu/Button" to="restartmenu" method="_on_Button_mouse_exited"]
+[connection signal="pressed" from="restartmenu/Button" to="mur/base" method="_on_Button_pressed"]
+[connection signal="pressed" from="restartmenu/Button" to="enemis" method="_on_Button_pressed"]
+[connection signal="pressed" from="restartmenu/Button" to="scorenode" method="_on_Button_pressed"]
+[connection signal="pressed" from="restartmenu/Button" to="playernode" method="_on_Button_pressed"]
+[connection signal="pressed" from="restartmenu/Button" to="playernode/player" method="_on_Button_pressed"]
+[connection signal="mouse_entered" from="restartmenu/quit" to="." method="_on_quit_mouse_entered"]
+[connection signal="mouse_exited" from="restartmenu/quit" to="." method="_on_quit_mouse_exited"]
+[connection signal="pressed" from="restartmenu/quit" to="restartmenu" method="_on_quit_pressed"]
+[connection signal="mouse_entered" from="restartmenu/quitb" to="restartmenu" method="_on_quitb_mouse_entered"]
+[connection signal="mouse_exited" from="restartmenu/quitb" to="restartmenu" method="_on_quitb_mouse_exited"]
+[connection signal="pressed" from="restartmenu/quitb" to="." method="_on_quitb_pressed"]
+[connection signal="mouse_entered" from="restartmenu/home" to="restartmenu" method="_on_home_mouse_entered"]
+[connection signal="mouse_exited" from="restartmenu/home" to="restartmenu" method="_on_home_mouse_exited"]
+[connection signal="pressed" from="restartmenu/home" to="restartmenu" method="_on_home_pressed"]
+[connection signal="mouse_entered" from="restartmenu/unpause" to="restartmenu" method="_on_unpause_mouse_entered"]
+[connection signal="mouse_exited" from="restartmenu/unpause" to="restartmenu" method="_on_unpause_mouse_exited"]
+[connection signal="pressed" from="restartmenu/unpause" to="." method="_on_unpause_pressed"]
