@@ -44,7 +44,7 @@ func cinema():
 	elif cine==1:
 		cine+=1
 		$"cinématiques/textback".visible=true
-		$"cinématiques/textback/text".text = "NOUS COURONS UN GRAND DANGER... \n, LES DIFFÉRENTES \n RACES DE CE MONDE \n CE SONT LIGUÉES \n CONTRE NOUS..."
+		$"cinématiques/textback/text".text = "NOUS COURONS UN GRAND \nDANGER.LES \n DIFFÉRENTES RACES \n DE CE MONDE CE SONT \n LIGUÉES CONTRE NOUS..."
 	elif cine==2:
 		cine+=1
 		$"cinématiques/textback".visible=true

@@ -36,8 +36,8 @@ EST CONSIDERER COMME UN VOL
 
 
 LISTE DES TESTEURS:
--SI TU PEUT LIRE CA BAH T'EN FAIT 
-PARTI MDR
+-VALE075
+-CHAPEAULOUP60
 
 LE JEU A ETE FAIT EN UTILISANT :
 LE MOTEUR GRAPHIQUE GODOT ENGINE
@@ -56,7 +56,9 @@ ET ABELTON LIVE
 
 
 
-MERCI D'AVOIR JOUé"
+MERCI D'AVOIR JOUé
+
+Copyright (c) [2020] [knight quest]"
 
 [node name="Sprite" type="Sprite" parent="KinematicBody2D"]
 position = Vector2( 464.087, 1541.81 )
@@ -79,7 +81,7 @@ position = Vector2( 113.238, 2368.71 )
 texture = ExtResource( 7 )
 
 [node name="VisibilityEnabler2D" type="VisibilityEnabler2D" parent="KinematicBody2D"]
-position = Vector2( 141.565, 3170.51 )
+position = Vector2( 129.523, 3459.52 )
 scale = Vector2( 13.0235, -13.9048 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
