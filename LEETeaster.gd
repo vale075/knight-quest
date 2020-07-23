@@ -64,22 +64,23 @@ func _on_quit_mouse_exited():
 
 func _process(delta):
 	if Input.is_action_just_pressed("pause"):
-		if pause == false:
-			pause=true
-			emit_signal("pause")
-			$restartmenu/unpause.visible=true
-			$restartmenu/unpause2.visible=true
-			$restartmenu/quitb.visible=true
-			$restartmenu/quitb2.visible=true
-			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-		else:
-			pause=false
-			emit_signal("unpause")
-			$restartmenu/unpause.visible=false
-			$restartmenu/unpause2.visible=false
-			$restartmenu/quitb.visible=false
-			$restartmenu/quitb2.visible=false
-			Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+		if oversound==false:
+			if pause == false:
+				pause=true
+				emit_signal("pause")
+				$restartmenu/unpause.visible=true
+				$restartmenu/unpause2.visible=true
+				$restartmenu/quitb.visible=true
+				$restartmenu/quitb2.visible=true
+				Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+			else:
+				pause=false
+				emit_signal("unpause")
+				$restartmenu/unpause.visible=false
+				$restartmenu/unpause2.visible=false
+				$restartmenu/quitb.visible=false
+				$restartmenu/quitb2.visible=false
+				Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	if Input.is_action_just_pressed("ok"):
 		emit_signal("ok")
 	if end==true:
