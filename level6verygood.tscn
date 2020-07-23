@@ -121,7 +121,7 @@ texture = ExtResource( 4 )
 script = ExtResource( 5 )
 
 [node name="Timer" type="Timer" parent="enemis"]
-wait_time = 0.5
+wait_time = 0.8
 autostart = true
 
 [node name="playernode" type="Node" parent="."]
@@ -325,8 +325,8 @@ text = "TEST"
 [connection signal="mouse_exited" from="restartmenu/Button" to="restartmenu" method="_on_Button_mouse_exited"]
 [connection signal="pressed" from="restartmenu/Button" to="mur/base" method="_on_Button_pressed"]
 [connection signal="pressed" from="restartmenu/Button" to="playernode/player" method="_on_Button_pressed"]
-[connection signal="pressed" from="restartmenu/Button" to="scorenode" method="_on_Button_pressed"]
 [connection signal="pressed" from="restartmenu/Button" to="playernode" method="_on_Button_pressed"]
+[connection signal="pressed" from="restartmenu/Button" to="scorenode" method="_on_Button_pressed"]
 [connection signal="pressed" from="restartmenu/Button" to="enemis" method="_on_Button_pressed"]
 [connection signal="mouse_entered" from="restartmenu/quit" to="." method="_on_quit_mouse_entered"]
 [connection signal="mouse_exited" from="restartmenu/quit" to="." method="_on_quit_mouse_exited"]
