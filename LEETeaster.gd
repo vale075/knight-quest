@@ -109,7 +109,6 @@ func end():
 		succes.open("res://SAVE/succes.tres", File.READ_WRITE)
 		var linesucces= succes.get_as_text()
 		succes.store_line(linesucces)
-		succes.get_line()
 		succes.store_line("sleet")
 		succes.close()
 		get_tree().quit()
