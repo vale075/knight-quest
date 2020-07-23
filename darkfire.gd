@@ -5,18 +5,20 @@ var speed=0
 var finish = false
 var finishhim = false
 signal animationfinish
-var dead = false
 var loadfire=load("res://darkfire.tscn")
 
 func _ready():
 	$Sprite/AnimationPlayer.play("boomer")
 	$Timer.wait_time=rand_range(0.5,1.5)
 
-func _physics_process(delta):
+func _process(delta):
 	if finishhim == false:
 		if get_parent().pause==false:
-			if dead == false:
-				position.y+=  speed/3
+			position.y+=  speed/3
+	if get_parent().pause==false:
+		$Sprite/AnimationPlayer.play("boomer")
+	else:
+		$Sprite/AnimationPlayer.stop(false)
 
 func _on_Area2D_body_entered(body):
 	if body.name == "player":
@@ -45,7 +47,8 @@ func _on_Area2D_area_entered(area):
 
 
 func _on_Timer_timeout():
-	var fire=loadfire.instance()
-	fire.position=position
-	fire.speed=speed
-	get_parent().add_child(fire)
+	if get_parent().pause == false:
+		var fire=loadfire.instance()
+		fire.position=position
+		fire.speed=speed
+		get_parent().add_child(fire)

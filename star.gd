@@ -5,10 +5,11 @@ var time = 15.0
 
 
 func _process(delta):
-	position.y+=speed/2
-	time-=delta
-	if time < 0:
-		queue_free()
+	if get_parent().pause == false:
+		position.y+=speed/2
+		time-=delta
+		if time < 0:
+			queue_free()
 
 func _on_Area2D_body_entered(body):
 	if body.name =="player":

@@ -8,11 +8,19 @@ signal animationfinish
 var dead = false
 
 
-func _physics_process(delta):
+func _process(delta):
 	if finishhim == false:
 		if get_parent().pause==false:
 			if dead == false:
 				position.y+=  speed
+	if get_parent().pause==false:
+		$Sprite/AnimationPlayer.play("boomer")
+		if $Sprite2.visible==true:
+			$Sprite2/AnimationPlayer.play("explosion")
+	else:
+		$Sprite/AnimationPlayer.stop(false)
+		if $Sprite2.visible==true:
+			$Sprite2/AnimationPlayer.stop(false)
 
 func _on_Area2D_body_entered(body):
 	if body.name == "player":

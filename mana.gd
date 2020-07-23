@@ -7,10 +7,15 @@ func _ready():
 	$Sprite/AnimationPlayer.play("mana")
 
 func _process(delta):
-	position.y+=speed/2
-	time-=delta
+	if get_parent().pause==false:
+		position.y+=speed/2
+		time-=delta
 	if time < 0:
 		queue_free()
+	if get_parent().pause==false:
+		$Sprite/AnimationPlayer.play("boomer")
+	else:
+		$Sprite/AnimationPlayer.stop(false)
 
 func _on_Area2D_body_entered(body):
 	if body.name =="player":

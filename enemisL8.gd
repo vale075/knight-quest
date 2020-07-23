@@ -51,7 +51,7 @@ func _on_Timer_timeout():
 			elif typeenemy==4:
 				var enemy = loadlove.instance()
 				enemy.speed=enemyspeed
-				enemy.position.x = rand_range(50,950)
+				enemi.position.x = rand_range(50,950)
 				add_child(enemy)
 			elif typeenemy==5:
 				var enemy = loadmana.instance()

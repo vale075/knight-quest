@@ -9,6 +9,10 @@ func _physics_process(delta):
 	if finishhim == false:
 		if get_parent().pause==false:
 			position.y+=  speed
+	if get_parent().pause==false:
+		$Sprite/AnimationPlayer.play("boomer")
+	else:
+		$Sprite/AnimationPlayer.stop(false)
 
 func _on_Area2D_body_entered(body):
 	if body.name == "player":

@@ -50,7 +50,7 @@ func _on_Timer_timeout():
 				var enemy = loadlove.instance()
 				enemy.speed=enemyspeed
 				enemy.position.x = rand_range(50,950)
-				enemy+=1
+				enemi+=1
 				add_child(enemy)
 			else :
 				var enemy = loadlight.instance()

@@ -13,6 +13,7 @@ var levelsave = ""
 var line = "line"
 var LEVEL = ""
 signal timer_end
+var erase = 1
 
 
 func _wait( seconds ):
@@ -148,10 +149,32 @@ func _on_begin_mouse_exited():
 
 
 func _on_begin_pressed():
-	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
-	var save_game = File.new()
-	save_game.open("res://save/save.tres", File.WRITE)
-	get_tree().change_scene("res://tutoriel.tscn")
+	if erase == 0:
+		Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+		var save_game = File.new()
+		save_game.open("res://save/save.tres", File.WRITE)
+		get_tree().change_scene("res://tutoriel.tscn")
+	var save_game= File.new()
+	save_game.open("res://save/save.tres", File.READ)
+	if not save_game.get_line()== "":
+		$control2/blacktext.visible=true
+		$control2/blacktext/text.rect_scale.x=0.3
+		$control2/blacktext/text.rect_scale.y=0.3
+		$control2/blacktext/text.text="ATTENTION ! COMMENCER \n UNE PARTIE SUPRIMERAS \n VOTRE ANCIENE \nSAUVEGARDE"
+		_wait(2)
+		yield(self,"timer_end")
+		$control2/blacktext/text.rect_scale.x=0.6
+		$control2/blacktext/text.rect_scale.y=0.6
+		$control2/blacktext.visible=false
+		$control2/blacktext/text.text="APUYEZ \n SUR UNE \n TOUCHE"
+		save_game.close()
+		erase-=1
+	else:
+		save_game.close()
+		Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+		save_game = File.new()
+		save_game.open("res://save/save.tres", File.WRITE)
+		get_tree().change_scene("res://tutoriel.tscn")
 	
 
 func _on_quit_pressed():
@@ -404,7 +427,7 @@ func _input(event):
 			var inputerase=InputMap.get_action_list("ok")[0]
 			InputMap.action_erase_event("ok",inputerase)
 			InputMap.action_add_event("ok",event)
-			$control2/upbutton.text=InputMap.get_action_list("ok")[0].as_text()
+			$control2/acceptbutton.text=InputMap.get_action_list("ok")[0].as_text()
 			accept=false
 			$control2/blacktext.visible=false
 			$control2/blacktext/text.visible=false
