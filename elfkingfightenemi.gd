@@ -18,7 +18,7 @@ func _on_Timer_timeout():
 
 
 func _on_Area2D_area_entered(area):
-	if "fireball" in area.name or "Area2D" in area.name:
+	if "fireball" in area.name:
 		vie-=1
 
 func _process(delta):

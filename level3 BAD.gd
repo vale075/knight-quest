@@ -58,22 +58,23 @@ func _on_quit_mouse_exited():
 
 func _process(delta):
 	if Input.is_action_just_pressed("pause"):
-		if pause == false:
-			pause=true
-			emit_signal("pause")
-			$restartmenu/unpause.visible=true
-			$restartmenu/unpause2.visible=true
-			$restartmenu/quitb.visible=true
-			$restartmenu/quitb2.visible=true
-			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-		else:
-			pause=false
-			emit_signal("unpause")
-			$restartmenu/unpause.visible=false
-			$restartmenu/unpause2.visible=false
-			$restartmenu/quitb.visible=false
-			$restartmenu/quitb2.visible=false
-			Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+		if oversound==false:
+			if pause == false:
+				pause=true
+				emit_signal("pause")
+				$restartmenu/unpause.visible=true
+				$restartmenu/unpause2.visible=true
+				$restartmenu/quitb.visible=true
+				$restartmenu/quitb2.visible=true
+				Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+			else:
+				pause=false
+				emit_signal("unpause")
+				$restartmenu/unpause.visible=false
+				$restartmenu/unpause2.visible=false
+				$restartmenu/quitb.visible=false
+				$restartmenu/quitb2.visible=false
+				Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	if Input.is_action_just_pressed("ok"):
 		emit_signal("ok")
 
@@ -98,56 +99,48 @@ func end():
 	$cinema/roi/AnimationPlayer.play("normal")
 	yield(self,"ok")
 	$cinema/blacktext/text.text=""
-	$cinema/blacktext.visible=false
 	_wait(2)
 	yield(self,"timer_end")
 	$cinema/blacktext/text.text="JE SUIS FELICIA \n LA REINE ELFE"
 	$cinema/blacktext.visible=true
 	yield(self,"ok")
 	$cinema/blacktext/text.text=""
-	$cinema/blacktext.visible=false
 	_wait(2)
 	yield(self,"timer_end")
 	$cinema/blacktext/text.text="NOUS, LES AUTRES \n RACES \n AVONS BESOIN DE TOI"
 	$cinema/blacktext.visible=true
 	yield(self,"ok")
 	$cinema/blacktext/text.text=""
-	$cinema/blacktext.visible=false
 	_wait(2)
 	yield(self,"timer_end")
 	$cinema/blacktext/text.text="LE ROI NOUS \n MASSACRE DEPUIS \n TROP LONGTEMPS"
 	$cinema/blacktext.visible=true
 	yield(self,"ok")
 	$cinema/blacktext/text.text=""
-	$cinema/blacktext.visible=false
 	_wait(2)
 	yield(self,"timer_end")
 	$cinema/blacktext/text.text="AIDE NOUS A \n LE FAIRE TOMBER \n S'IL TE PLAIT"
 	$cinema/blacktext.visible=true
 	yield(self,"ok")
 	$cinema/blacktext/text.text=""
-	$cinema/blacktext.visible=false
 	_wait(2)
 	yield(self,"timer_end")
 	$cinema/blacktext/text.text="POUR CA C'EST \n SIMPLE : FAIT EN SORTE \n QU'UN MAXIMUM DE \n NOS SOLDAT PASSE"
 	$cinema/blacktext.visible=true
 	yield(self,"ok")
 	$cinema/blacktext/text.text=""
-	$cinema/blacktext.visible=false
 	_wait(2)
 	yield(self,"timer_end")
 	$cinema/blacktext/text.text="FAIT JUSTE ATENTON \n QU'IL N'Y EN \n AS PAS TROP QUI \n PASSE... SINON LE ROI \n VA S'EN RENDRE \n COMPTE"
 	$cinema/blacktext.visible=true
 	yield(self,"ok")
 	$cinema/blacktext/text.text=""
-	$cinema/blacktext.visible=false
 	_wait(2)
 	yield(self,"timer_end")
 	$cinema/blacktext/text.text="ON COMPTE SUR \n TOI"
 	$cinema/blacktext.visible=true
 	yield(self,"ok")
 	$cinema/blacktext/text.text=""
-	$cinema/blacktext.visible=false
 	_wait(2)
 	yield(self,"timer_end")
 	file.open("res://save/save.tres", File.READ)

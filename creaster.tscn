@@ -108,7 +108,6 @@ stream = ExtResource( 8 )
 position = Vector2( 904.648, 491.095 )
 
 [node name="cinema" type="Node" parent="."]
-editor/display_folded = true
 
 [node name="trone" type="Sprite" parent="cinema"]
 visible = false
@@ -163,10 +162,10 @@ text = "TEST"
 
 [node name="Timer" type="Timer" parent="."]
 autostart = true
-[connection signal="pause" from="." to="playernode" method="_on_main_pause"]
 [connection signal="pause" from="." to="playernode/player" method="_on_main_pause"]
-[connection signal="unpause" from="." to="playernode" method="_on_main_unpause"]
+[connection signal="pause" from="." to="playernode" method="_on_main_pause"]
 [connection signal="unpause" from="." to="playernode/player" method="_on_main_unpause"]
+[connection signal="unpause" from="." to="playernode" method="_on_main_unpause"]
 [connection signal="finished" from="sond/musique" to="." method="_on_musique_finished"]
 [connection signal="area_entered" from="cinema/roi/Area2D" to="." method="_on_Area2D_area_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
