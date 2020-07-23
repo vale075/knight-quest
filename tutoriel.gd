@@ -250,5 +250,6 @@ func killtu():
 
 func damagetu():
 	another=true
+	speed=(speed/3)*2
 	$"cinématiques/textback".visible=true
 	$"cinématiques/textback/text".text = "Fait attention..."
