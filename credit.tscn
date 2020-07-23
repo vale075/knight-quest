@@ -38,6 +38,7 @@ EST CONSIDERER COMME UN VOL
 LISTE DES TESTEURS:
 -VALE075
 -CHAPEAULOUP60
+-RIPERE
 
 LE JEU A ETE FAIT EN UTILISANT :
 LE MOTEUR GRAPHIQUE GODOT ENGINE
@@ -62,23 +63,23 @@ Copyright (c) [2020] [PAUL-LOUP
 DAVID]"
 
 [node name="Sprite" type="Sprite" parent="KinematicBody2D"]
-position = Vector2( 464.087, 1541.81 )
+position = Vector2( 452.103, 1609.72 )
 scale = Vector2( 0.755189, 0.755189 )
 z_index = 1
 texture = ExtResource( 4 )
 
 [node name="Sprite2" type="Sprite" parent="KinematicBody2D"]
-position = Vector2( 447.164, 1539.16 )
+position = Vector2( 459.148, 1619.05 )
 scale = Vector2( 27.7967, 11.7751 )
 texture = ExtResource( 5 )
 
 [node name="Sprite3" type="Sprite" parent="KinematicBody2D"]
-position = Vector2( 147.95, 1960.91 )
+position = Vector2( 144.859, 2056.73 )
 scale = Vector2( 0.555104, 0.555104 )
 texture = ExtResource( 6 )
 
 [node name="Sprite4" type="Sprite" parent="KinematicBody2D"]
-position = Vector2( 113.238, 2368.71 )
+position = Vector2( 125.602, 2461.44 )
 texture = ExtResource( 7 )
 
 [node name="VisibilityEnabler2D" type="VisibilityEnabler2D" parent="KinematicBody2D"]

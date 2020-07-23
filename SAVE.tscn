@@ -1,6 +1,0 @@
-[gd_scene format=2]
-
-[node name="SAVE" type="Node" groups=[
-"save",
-"succes",
-]]

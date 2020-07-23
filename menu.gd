@@ -34,6 +34,45 @@ func _create_timer(object_target, float_wait_time, bool_is_oneshot, string_funct
 func _ready():
 	$menumusic.play()
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), -20+(2*7))
+	var file = File.new()
+	file.open("res://SAVE/inputsave.tres",File.READ)
+	if file.get_as_text():
+		var event=InputEventKey.new()
+		event.set_scancode(int(file.get_line()))
+		var inputerase=InputMap.get_action_list("ui_up")[0]
+		InputMap.action_erase_event("ui_up",inputerase)
+		InputMap.action_add_event("ui_up",event)
+		event=InputEventKey.new()
+		event.set_scancode(int(file.get_line()))
+		inputerase=InputMap.get_action_list("ui_left")[0]
+		InputMap.action_erase_event("ui_left",inputerase)
+		InputMap.action_add_event("ui_left",event)
+		event=InputEventKey.new()
+		event.set_scancode(int(file.get_line()))
+		inputerase=InputMap.get_action_list("ui_right")[0]
+		InputMap.action_erase_event("ui_right",inputerase)
+		InputMap.action_add_event("ui_right",event)
+		event=InputEventKey.new()
+		event.set_scancode(int(file.get_line()))
+		inputerase=InputMap.get_action_list("fire")[0]
+		InputMap.action_erase_event("fire",inputerase)
+		InputMap.action_add_event("fire",event)
+		event=InputEventKey.new()
+		event.set_scancode(int(file.get_line()))
+		inputerase=InputMap.get_action_list("ui_down")[0]
+		InputMap.action_erase_event("ui_down",inputerase)
+		InputMap.action_add_event("ui_down",event)
+		event=InputEventKey.new()
+		event.set_scancode(int(file.get_line()))
+		inputerase=InputMap.get_action_list("pause")[0]
+		InputMap.action_erase_event("pause",inputerase)
+		InputMap.action_add_event("pause",event)
+		event=InputEventKey.new()
+		event.set_scancode(int(file.get_line()))
+		inputerase=InputMap.get_action_list("ok")[0]
+		InputMap.action_erase_event("ok",inputerase)
+		InputMap.action_add_event("ok",event)
+	file.close()
 
 func _on_start_mouse_entered():
 	$start.icon=load("res://texture/knight quest/replay2.png")
@@ -383,6 +422,7 @@ func _input(event):
 			up=false
 			$control2/blacktext.visible=false
 			$control2/blacktext/text.visible=false
+			saveinput()
 		if left==true:
 			var inputerase=InputMap.get_action_list("ui_left")[0]
 			InputMap.action_erase_event("ui_left",inputerase)
@@ -391,6 +431,7 @@ func _input(event):
 			left=false
 			$control2/blacktext.visible=false
 			$control2/blacktext/text.visible=false
+			saveinput()
 		if right==true:
 			var inputerase=InputMap.get_action_list("ui_right")[0]
 			InputMap.action_erase_event("ui_right",inputerase)
@@ -399,6 +440,7 @@ func _input(event):
 			right=false
 			$control2/blacktext.visible=false
 			$control2/blacktext/text.visible=false
+			saveinput()
 		if fire==true:
 			var inputerase=InputMap.get_action_list("fire")[0]
 			InputMap.action_erase_event("fire",inputerase)
@@ -407,6 +449,7 @@ func _input(event):
 			fire=false
 			$control2/blacktext.visible=false
 			$control2/blacktext/text.visible=false
+			saveinput()
 		if down==true:
 			var inputerase=InputMap.get_action_list("ui_down")[0]
 			InputMap.action_erase_event("ui_down",inputerase)
@@ -415,6 +458,7 @@ func _input(event):
 			down=false
 			$control2/blacktext.visible=false
 			$control2/blacktext/text.visible=false
+			saveinput()
 		if pause==true:
 			var inputerase=InputMap.get_action_list("pause")[0]
 			InputMap.action_erase_event("pause",inputerase)
@@ -423,6 +467,7 @@ func _input(event):
 			pause=false
 			$control2/blacktext.visible=false
 			$control2/blacktext/text.visible=false
+			saveinput()
 		if accept==true:
 			var inputerase=InputMap.get_action_list("ok")[0]
 			InputMap.action_erase_event("ok",inputerase)
@@ -431,6 +476,18 @@ func _input(event):
 			accept=false
 			$control2/blacktext.visible=false
 			$control2/blacktext/text.visible=false
+			saveinput()
+
+func saveinput():
+	var inputsave= File.new()
+	inputsave.open("res://SAVE/inputsave.tres",File.WRITE)
+	inputsave.store_line(str((InputMap.get_action_list("ui_up")[0].scancode)))
+	inputsave.store_line(str((InputMap.get_action_list("ui_left")[0].scancode)))
+	inputsave.store_line(str((InputMap.get_action_list("ui_right")[0].scancode)))
+	inputsave.store_line(str((InputMap.get_action_list("fire")[0].scancode)))
+	inputsave.store_line(str((InputMap.get_action_list("ui_down")[0].scancode)))
+	inputsave.store_line(str((InputMap.get_action_list("pause")[0].scancode)))
+	inputsave.store_line(str((InputMap.get_action_list("ok")[0].scancode)))
 
 func _on_upbutton_pressed():
 	up=true
