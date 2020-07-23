@@ -58,7 +58,8 @@ ET ABELTON LIVE
 
 MERCI D'AVOIR JOUé
 
-Copyright (c) [2020] [knight quest]"
+Copyright (c) [2020] [PAUL-LOUP
+DAVID]"
 
 [node name="Sprite" type="Sprite" parent="KinematicBody2D"]
 position = Vector2( 464.087, 1541.81 )

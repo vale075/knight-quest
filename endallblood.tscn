@@ -120,8 +120,8 @@ position = Vector2( 499.078, 395.798 )
 scale = Vector2( 1.22466, 1.15744 )
 z_index = -2
 texture = ExtResource( 11 )
-[connection signal="pause" from="." to="playernode" method="_on_main_pause"]
 [connection signal="pause" from="." to="playernode/player" method="_on_main_pause"]
-[connection signal="unpause" from="." to="playernode" method="_on_main_unpause"]
+[connection signal="pause" from="." to="playernode" method="_on_main_pause"]
 [connection signal="unpause" from="." to="playernode/player" method="_on_main_unpause"]
+[connection signal="unpause" from="." to="playernode" method="_on_main_unpause"]
 [connection signal="finished" from="sond/musique" to="." method="_on_musique_finished"]

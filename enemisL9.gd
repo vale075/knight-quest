@@ -1,7 +1,7 @@
 extends Node
 
 var pause=false
-var enemyspeed= 2
+var enemyspeed= 2.0
 var finish = false
 var enemi = 0
 var enemylife=0
@@ -17,7 +17,6 @@ func _on_Timer_timeout():
 	var typeenemy= randi()%8
 	if enemi <300:
 		if pause == false:
-			enemyspeed+=0.01
 			if typeenemy == 0 or typeenemy==3:
 				var enemy = load1.instance()
 				enemy.speed=enemyspeed
@@ -60,7 +59,7 @@ func _on_Button_pressed():
 	enemi=0
 	enemylife=0
 	finish = false
-	enemyspeed=2
+	enemyspeed=2.0
 	for n in get_children():
 		if n.name != "Timer":
 			remove_child(n)

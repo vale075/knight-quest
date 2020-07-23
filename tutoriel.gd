@@ -9,7 +9,7 @@ var cine=0
 var fight=false
 var okok=false
 var another=false
-var speed = float(18)
+var speed = float(1)
 var musique = true
 var easter= false
 
@@ -250,5 +250,6 @@ func killtu():
 
 func damagetu():
 	another=true
+	speed=(speed/3)*2
 	$"cinématiques/textback".visible=true
 	$"cinématiques/textback/text".text = "Fait attention..."
