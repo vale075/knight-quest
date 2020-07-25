@@ -98,28 +98,12 @@ func end():
 	if $mur/base.pv<5:
 		var save_game = File.new()
 		save_game.open("res://save/save.tres", File.WRITE)
-		if not lignee=="":
-			var save={
-				"res://endpeace.tscn"  :  "",
-				pvextract+str($mur/base.pv)  :  "",
-				lignee : ""
-			}
-		else:
-			var save={
-				"res://endpeace.tscn"  :  "",
-			}
-		for i in save:
-			save_game.store_line(i)
 		save_game.close()
 		get_tree().change_scene("res://endpeace.tscn")
 	else:
 		var save_game = File.new()
 		save_game.open("res://save/save.tres", File.WRITE)
-		var save={
-				"res://endelfteam.tscn"  :  "",
-			}
-		for i in save:
-			save_game.store_line(i)
+		save_game.store_line("res://endelfteam.tscn")
 		save_game.close()
 		get_tree().change_scene("res://endelfteam.tscn")
 
