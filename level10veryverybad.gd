@@ -98,21 +98,13 @@ func end():
 	if $mur/base.pv<5:
 		var save_game = File.new()
 		save_game.open("res://save/save.tres", File.WRITE)
-		var save={
-			"res://endbadelf.tscn"  :  "",
-			}
-		for i in save:
-			save_game.store_line(i)
+		save_game.store_line("res://endbadelf.tscn")
 		save_game.close()
 		get_tree().change_scene("res://endbadelf.tscn")
 	else:
 		var save_game = File.new()
 		save_game.open("res://save/save.tres", File.WRITE)
-		var save={
-				"res://endkingteam.tscn"  :  "",
-			}
-		for i in save:
-			save_game.store_line(i)
+		save_game.store_line("res://endkingteam.tscn")
 		save_game.close()
 		get_tree().change_scene("res://endkingteam.tscn")
 

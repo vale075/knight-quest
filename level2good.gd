@@ -157,7 +157,9 @@ func touch():
 		$cinema/blacktext.visible=true
 		$cinema/blacktext/text.text="ATTENTION! \n EUX TU DOIT \n LES ÉVITER"
 		emit_signal("pause")
+		oversound=true
 		yield(self , "ok")
 		$cinema/blacktext.visible=false
+		oversound=false
 		emit_signal("unpause")
 		touch = true

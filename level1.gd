@@ -111,6 +111,7 @@ func end():
 		yield(self,"timer_end")
 		var save={
 			"res://level2good.tscn"  :  "",
+			str($mur/base.pv) :""
 			}
 		var save_game = File.new()
 		save_game.open("res://save/save.tres", File.WRITE)
@@ -126,6 +127,7 @@ func end():
 		yield(self,"timer_end")
 		var save={
 			"res://level2BAD.tscn"  :  "",
+			str($mur/base.pv) :""
 		}
 		var save_game = File.new()
 		save_game.open("res://save/save.tres", File.WRITE)
