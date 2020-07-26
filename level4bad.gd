@@ -141,6 +141,8 @@ func end():
 			"res://level5normal.tscn"  :  "",
 			pvextract+str($mur/base.pv)  :  ""
 		}
+		for i in save:
+			save_game.store_line(i)
 		$cinema/blacktext/text.text="JE NE SAIT PAS \n CE QUE TU FAIT... \n TU NOUS TUE OU \n TU NOUS EPARGNE?"
 		$cinema/blacktext.visible=true
 		yield(self,"ok")

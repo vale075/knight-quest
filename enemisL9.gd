@@ -12,6 +12,22 @@ var loadlight=load("res://lightcanon.tscn")
 var loadlove=load("res://love.tscn")
 var loadmana=load("res://mana.tscn")
 var loaddark=load("res://darkmage.tscn")
+signal timer_end
+
+func _wait( seconds ):
+	self._create_timer(self, seconds, true, "_emit_timer_end_signal")
+
+func _emit_timer_end_signal():
+	emit_signal("timer_end")
+
+func _create_timer(object_target, float_wait_time, bool_is_oneshot, string_function):
+	var timer = Timer.new()
+	timer.set_one_shot(bool_is_oneshot)
+	timer.set_timer_process_mode(0)
+	timer.set_wait_time(float_wait_time)
+	timer.connect("timeout", object_target, string_function)
+	self.add_child(timer)
+	timer.start()
 
 func _on_Timer_timeout():
 	var typeenemy= randi()%8
@@ -72,9 +88,10 @@ func _process(delta):
 				get_node(n.name).finish=true
 	if activate == false:
 		if enemi >299:
-			if enemylife==0:
-				get_parent().end()
-				activate=true
+			_wait(5)
+			yield(self,"timer_end")
+			get_parent().end()
+			activate=true
 
 func _on_main_pause():
 	pause=true

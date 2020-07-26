@@ -10,6 +10,22 @@ var load1=load("res://enemy.tscn")
 var load2=load("res://enemy2.tscn")
 var loadlight=load("res://lightcanon.tscn")
 var loadlove=load("res://love.tscn")
+signal timer_end
+
+func _wait( seconds ):
+	self._create_timer(self, seconds, true, "_emit_timer_end_signal")
+
+func _emit_timer_end_signal():
+	emit_signal("timer_end")
+
+func _create_timer(object_target, float_wait_time, bool_is_oneshot, string_function):
+	var timer = Timer.new()
+	timer.set_one_shot(bool_is_oneshot)
+	timer.set_timer_process_mode(0)
+	timer.set_wait_time(float_wait_time)
+	timer.connect("timeout", object_target, string_function)
+	self.add_child(timer)
+	timer.start()
 
 func _on_Timer_timeout():
 	var typeenemy= randi()%6
@@ -34,7 +50,7 @@ func _on_Timer_timeout():
 				var enemy = loadlove.instance()
 				enemy.speed=enemyspeed
 				enemy.position.x = rand_range(50,950)
-				enemylife+=1
+				enemy+=1
 				add_child(enemy)
 			else :
 				var enemy = loadlight.instance()
@@ -60,9 +76,10 @@ func _process(delta):
 				get_node(n.name).finish=true
 	if activate == false:
 		if enemi >119:
-			if enemylife==0:
-				get_parent().end()
-				activate=true
+			_wait(5)
+			yield(self,"timer_end")
+			get_parent().end()
+			activate=true
 
 func _on_main_pause():
 	pause=true
