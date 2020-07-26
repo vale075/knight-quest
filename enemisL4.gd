@@ -1,7 +1,7 @@
 extends Node
 
 var pause=false
-var enemyspeed= 2
+var enemyspeed= 1.5
 var finish = false
 var enemi = 0
 var enemylife=0
@@ -12,7 +12,7 @@ var loadlight=load("res://lightcanon.tscn")
 
 func _on_Timer_timeout():
 	var typeenemy= randi()%5
-	if enemi <80:
+	if enemi <60:
 		if pause == false:
 			enemyspeed+=0.01
 			if typeenemy == 0 or typeenemy==3:
@@ -40,7 +40,7 @@ func _on_Button_pressed():
 	enemi=0
 	enemylife=0
 	finish = false
-	enemyspeed=2
+	enemyspeed=1.5
 	for n in get_children():
 		if n.name != "Timer":
 			remove_child(n)
@@ -52,7 +52,7 @@ func _process(delta):
 			if n.name != "Timer":
 				get_node(n.name).finish=true
 	if activate == false:
-		if enemi >79:
+		if enemi >59:
 			if enemylife==0:
 				get_parent().end()
 				activate=true

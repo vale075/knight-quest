@@ -1,7 +1,7 @@
 extends Node
 
 var pause=false
-var enemyspeed= 3
+var enemyspeed= 2
 var finish = false
 var enemi = 0
 var enemylife=0
@@ -29,7 +29,7 @@ func _create_timer(object_target, float_wait_time, bool_is_oneshot, string_funct
 
 func _on_Timer_timeout():
 	var typeenemy= randi()%6
-	if enemi <120:
+	if enemi <100:
 		if pause == false:
 			enemyspeed+=0.01
 			if typeenemy == 0 or typeenemy==3:
@@ -63,7 +63,7 @@ func _on_Button_pressed():
 	enemi=0
 	enemylife=0
 	finish = false
-	enemyspeed=3
+	enemyspeed=2
 	for n in get_children():
 		if n.name != "Timer":
 			remove_child(n)
@@ -75,7 +75,7 @@ func _process(delta):
 			if n.name != "Timer":
 				get_node(n.name).finish=true
 	if activate == false:
-		if enemi >119:
+		if enemi >99:
 			_wait(5)
 			yield(self,"timer_end")
 			get_parent().end()
