@@ -108,11 +108,6 @@ func end():
 	else:
 		var save_game = File.new()
 		save_game.open("res://save/save.tres", File.WRITE)
-		var save={
-				"res://endendwars.tscn"  :  "",
-			}
-		for i in save:
-			save_game.store_line(i)
 		save_game.close()
 		get_tree().change_scene("res://endendwars.tscn")
 

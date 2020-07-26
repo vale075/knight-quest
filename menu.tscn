@@ -135,7 +135,6 @@ custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "QUITTER"
 
 [node name="Sprite" type="Sprite" parent="."]
-editor/display_folded = true
 position = Vector2( 512.523, 300.205 )
 scale = Vector2( 1.00479, 0.591102 )
 z_index = -1
@@ -443,10 +442,10 @@ scale = Vector2( 33.2144, 19.9643 )
 texture = ExtResource( 21 )
 
 [node name="text" type="Label" parent="control2/blacktext"]
-margin_left = -15.3876
-margin_top = -18.2642
-margin_right = 191.612
-margin_bottom = 34.7358
+margin_left = -15.0
+margin_top = -15.0
+margin_right = 192.0
+margin_bottom = 33.0
 rect_scale = Vector2( 0.6, 0.6 )
 custom_fonts/font = ExtResource( 22 )
 text = "APUYEZ 
@@ -457,6 +456,7 @@ __meta__ = {
 }
 
 [node name="succes2" type="Node" parent="."]
+editor/display_folded = true
 
 [node name="cresucces" type="Sprite" parent="succes2"]
 visible = false

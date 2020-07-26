@@ -7,20 +7,21 @@ var something=false
 var somebody=""
 
 func _process(delta):
-	if positionvar<50:
-		positionvar+=1
-		position.y+=1
-	else:
-		time+=delta
-		if activate == false:
-			activate=true
+	if get_parent().pause == false:
+		if positionvar<50:
+			positionvar+=1
+			position.y+=1
+		else:
+			time+=delta
 			$lightcanon/Sprite/AnimationPlayer.play("fire")
-		if time > 3.2:
-			get_node("../..").kill()
-			queue_free()
-		if time>1:
-			if something==true:
-				sure()
+			if time > 3.2:
+				get_node("../..").kill()
+				queue_free()
+			if time>1:
+				if something==true:
+					sure()
+	else:
+		$lightcanon/Sprite/AnimationPlayer.stop(false)
 
 
 func _on_lightcanon_body_entered(body):

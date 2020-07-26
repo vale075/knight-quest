@@ -10,10 +10,6 @@ var touch = false
 var savepv = "savepv"
 var pvextract=""
 var file=File.new()
-var lignee=""
-var save = {
-	
-}
 
 func _wait( seconds ):
 	self._create_timer(self, seconds, true, "_emit_timer_end_signal")
@@ -36,7 +32,7 @@ func _ready():
 	$cinema/blacktext/indication.text=InputMap.get_action_list("ok")[0].as_text()+" pour passer"
 
 func _on_musique_finished():
-	$sond/musique.play(10)
+	$sond/musique.play()
 
 func hit():
 	$enemis.enemylife-=1
@@ -95,21 +91,47 @@ func _on_quitb_pressed():
 	get_tree().quit()
 
 func end():
+	$sond/musique.stream=load("res://texture/knight quest/tutoriel music.wav")
+	$sond/musique.play()
+	$playernode/player.position=Vector2(517.205,521.11)
+	$cinema/blacktext.visible=true
+	$cinema/blacktext/text.text="FÉLICITATION!"
+	$cinema/roi.visible=true
+	$cinema/trone.visible=true
+	$cinema/roi/AnimationPlayer.play("normal")
+	yield(self,"ok")
+	$cinema/blacktext.visible=false
+	_wait(2)
+	yield(self,"timer_end")
 	if $mur/base.pv<5:
+		$cinema/blacktext.visible=true
+		$cinema/blacktext/text.text="JE CROIS EN \nTOI MEME SI \nTU N'EST PAS \nFORT"
+		yield(self,"ok")
+		_wait(2)
+		yield(self,"timer_end")
+		var save={
+			"res://level2good.tscn"  :  "",
+			str($mur/base.pv) :""
+			}
 		var save_game = File.new()
 		save_game.open("res://save/save.tres", File.WRITE)
-		var save={
-			"res://endbadelf.tscn"  :  "",
-			}
 		for i in save:
 			save_game.store_line(i)
 		save_game.close()
-		get_tree().change_scene("res://endbadelf.tscn")
+		get_tree().change_scene("res://level2good.tscn")
 	else:
+		$cinema/blacktext.visible=true
+		$cinema/blacktext/text.text="JE PLACE BEAUCOUP \n D'ESPOIR EN TOI"
+		yield(self,"ok")
+		_wait(2)
+		yield(self,"timer_end")
+		var save={
+			"res://level2BAD.tscn"  :  "",
+			str($mur/base.pv) :""
+		}
 		var save_game = File.new()
 		save_game.open("res://save/save.tres", File.WRITE)
+		for i in save:
+			save_game.store_line(i)
 		save_game.close()
-		get_tree().change_scene("res://endelfblood.tscn")
-
-func touch():
-	pass
+		get_tree().change_scene("res://level2BAD.tscn")

@@ -13,6 +13,7 @@ var levelsave = ""
 var line = "line"
 var LEVEL = ""
 signal timer_end
+var erase = 1
 
 
 func _wait( seconds ):
@@ -33,6 +34,45 @@ func _create_timer(object_target, float_wait_time, bool_is_oneshot, string_funct
 func _ready():
 	$menumusic.play()
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), -20+(2*7))
+	var file = File.new()
+	file.open("res://SAVE/inputsave.tres",File.READ)
+	if file.get_as_text():
+		var event=InputEventKey.new()
+		event.set_scancode(int(file.get_line()))
+		var inputerase=InputMap.get_action_list("ui_up")[0]
+		InputMap.action_erase_event("ui_up",inputerase)
+		InputMap.action_add_event("ui_up",event)
+		event=InputEventKey.new()
+		event.set_scancode(int(file.get_line()))
+		inputerase=InputMap.get_action_list("ui_left")[0]
+		InputMap.action_erase_event("ui_left",inputerase)
+		InputMap.action_add_event("ui_left",event)
+		event=InputEventKey.new()
+		event.set_scancode(int(file.get_line()))
+		inputerase=InputMap.get_action_list("ui_right")[0]
+		InputMap.action_erase_event("ui_right",inputerase)
+		InputMap.action_add_event("ui_right",event)
+		event=InputEventKey.new()
+		event.set_scancode(int(file.get_line()))
+		inputerase=InputMap.get_action_list("fire")[0]
+		InputMap.action_erase_event("fire",inputerase)
+		InputMap.action_add_event("fire",event)
+		event=InputEventKey.new()
+		event.set_scancode(int(file.get_line()))
+		inputerase=InputMap.get_action_list("ui_down")[0]
+		InputMap.action_erase_event("ui_down",inputerase)
+		InputMap.action_add_event("ui_down",event)
+		event=InputEventKey.new()
+		event.set_scancode(int(file.get_line()))
+		inputerase=InputMap.get_action_list("pause")[0]
+		InputMap.action_erase_event("pause",inputerase)
+		InputMap.action_add_event("pause",event)
+		event=InputEventKey.new()
+		event.set_scancode(int(file.get_line()))
+		inputerase=InputMap.get_action_list("ok")[0]
+		InputMap.action_erase_event("ok",inputerase)
+		InputMap.action_add_event("ok",event)
+	file.close()
 
 func _on_start_mouse_entered():
 	$start.icon=load("res://texture/knight quest/replay2.png")
@@ -148,10 +188,32 @@ func _on_begin_mouse_exited():
 
 
 func _on_begin_pressed():
-	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
-	var save_game = File.new()
-	save_game.open("res://save/save.tres", File.WRITE)
-	get_tree().change_scene("res://tutoriel.tscn")
+	if erase == 0:
+		Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+		var save_game = File.new()
+		save_game.open("res://save/save.tres", File.WRITE)
+		get_tree().change_scene("res://tutoriel.tscn")
+	var save_game= File.new()
+	save_game.open("res://save/save.tres", File.READ)
+	if not save_game.get_line()== "":
+		$control2/blacktext.visible=true
+		$control2/blacktext/text.rect_scale.x=0.3
+		$control2/blacktext/text.rect_scale.y=0.3
+		$control2/blacktext/text.text="ATTENTION ! COMMENCER \n UNE PARTIE SUPRIMERAS \n VOTRE ANCIENE \nSAUVEGARDE"
+		_wait(2)
+		yield(self,"timer_end")
+		$control2/blacktext/text.rect_scale.x=0.6
+		$control2/blacktext/text.rect_scale.y=0.6
+		$control2/blacktext.visible=false
+		$control2/blacktext/text.text="APUYEZ \n SUR UNE \n TOUCHE"
+		save_game.close()
+		erase-=1
+	else:
+		save_game.close()
+		Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+		save_game = File.new()
+		save_game.open("res://save/save.tres", File.WRITE)
+		get_tree().change_scene("res://tutoriel.tscn")
 	
 
 func _on_quit_pressed():
@@ -360,6 +422,7 @@ func _input(event):
 			up=false
 			$control2/blacktext.visible=false
 			$control2/blacktext/text.visible=false
+			saveinput()
 		if left==true:
 			var inputerase=InputMap.get_action_list("ui_left")[0]
 			InputMap.action_erase_event("ui_left",inputerase)
@@ -368,6 +431,7 @@ func _input(event):
 			left=false
 			$control2/blacktext.visible=false
 			$control2/blacktext/text.visible=false
+			saveinput()
 		if right==true:
 			var inputerase=InputMap.get_action_list("ui_right")[0]
 			InputMap.action_erase_event("ui_right",inputerase)
@@ -376,6 +440,7 @@ func _input(event):
 			right=false
 			$control2/blacktext.visible=false
 			$control2/blacktext/text.visible=false
+			saveinput()
 		if fire==true:
 			var inputerase=InputMap.get_action_list("fire")[0]
 			InputMap.action_erase_event("fire",inputerase)
@@ -384,6 +449,7 @@ func _input(event):
 			fire=false
 			$control2/blacktext.visible=false
 			$control2/blacktext/text.visible=false
+			saveinput()
 		if down==true:
 			var inputerase=InputMap.get_action_list("ui_down")[0]
 			InputMap.action_erase_event("ui_down",inputerase)
@@ -392,6 +458,7 @@ func _input(event):
 			down=false
 			$control2/blacktext.visible=false
 			$control2/blacktext/text.visible=false
+			saveinput()
 		if pause==true:
 			var inputerase=InputMap.get_action_list("pause")[0]
 			InputMap.action_erase_event("pause",inputerase)
@@ -400,14 +467,27 @@ func _input(event):
 			pause=false
 			$control2/blacktext.visible=false
 			$control2/blacktext/text.visible=false
+			saveinput()
 		if accept==true:
 			var inputerase=InputMap.get_action_list("ok")[0]
 			InputMap.action_erase_event("ok",inputerase)
 			InputMap.action_add_event("ok",event)
-			$control2/upbutton.text=InputMap.get_action_list("ok")[0].as_text()
+			$control2/acceptbutton.text=InputMap.get_action_list("ok")[0].as_text()
 			accept=false
 			$control2/blacktext.visible=false
 			$control2/blacktext/text.visible=false
+			saveinput()
+
+func saveinput():
+	var inputsave= File.new()
+	inputsave.open("res://SAVE/inputsave.tres",File.WRITE)
+	inputsave.store_line(str((InputMap.get_action_list("ui_up")[0].scancode)))
+	inputsave.store_line(str((InputMap.get_action_list("ui_left")[0].scancode)))
+	inputsave.store_line(str((InputMap.get_action_list("ui_right")[0].scancode)))
+	inputsave.store_line(str((InputMap.get_action_list("fire")[0].scancode)))
+	inputsave.store_line(str((InputMap.get_action_list("ui_down")[0].scancode)))
+	inputsave.store_line(str((InputMap.get_action_list("pause")[0].scancode)))
+	inputsave.store_line(str((InputMap.get_action_list("ok")[0].scancode)))
 
 func _on_upbutton_pressed():
 	up=true

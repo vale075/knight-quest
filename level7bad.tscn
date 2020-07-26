@@ -140,7 +140,7 @@ texture = ExtResource( 4 )
 script = ExtResource( 5 )
 
 [node name="Timer" type="Timer" parent="enemis"]
-wait_time = 0.5
+wait_time = 0.8
 autostart = true
 
 [node name="playernode" type="Node" parent="."]

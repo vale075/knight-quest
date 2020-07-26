@@ -52,6 +52,7 @@ func _on_Timer_timeout():
 				var enemy = loadlove.instance()
 				enemy.speed=enemyspeed
 				enemy.position.x = rand_range(50,950)
+				enemi+=1
 				add_child(enemy)
 			elif typeenemy==5:
 				var enemy = loadmana.instance()
@@ -88,6 +89,7 @@ func _process(delta):
 				get_node(n.name).finish=true
 	if activate == false:
 		if enemi >499:
+			_wait(5)
 			yield(self,"timer_end")
 			get_parent().end()
 			activate=true
